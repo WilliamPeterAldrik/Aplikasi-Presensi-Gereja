@@ -7,7 +7,7 @@
 
   <!-- Font & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../public/style.css">
 </head>
 <body>
 
@@ -15,20 +15,20 @@
   <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="../img/logo_youth.jpg" alt="Logo">
-        <h3>Absensi Youth Ministry GKI Kebonjati</h3>
+        <img src="../public/img/logo_youth.jpg" alt="Logo">
+        <h3>Youth Ministry GKI Kebonjati</h3>
       </div>
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
         <li><a href="absen.html">Absen</a></li>
         <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="#" class="btn-login">Login</a></li>
+        <li><a href="#" class="btn-login" id="btnLogin">Login</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero" src="img/1.jpg">
+  <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
       <h1>Selamat Datang Sobat Youth Ministry!</h1>
@@ -55,12 +55,11 @@
     </div>
   </section>
 
-  <!-- Jejak Momen Berharga -->
+  <!-- Jejak Momen -->
   <section class="gallery">
     <h2>Jejak Momen Berharga</h2>
     <p>Kegiatan seru dan penuh makna yang telah mempererat kebersamaan dan menumbuhkan iman.</p>
     <div class="gallery-cards">
-      
       <div class="gallery-item">
         <video autoplay loop muted playsinline>
           <source src="vidio/hidenseak.mp4" type="video/mp4">
@@ -84,7 +83,6 @@
         <h3>A GOLDEN SEARCH!</h3>
         <p>Seru dan menegangkan, kegiatan ini membuat kita belajar arti kebersamaan.</p>
       </div>
-
     </div>
   </section>
 
@@ -95,7 +93,7 @@
         <h3>Youth Ministry Kebonjati</h3>
         <p>Jl. Kebon Jati no.100<br>40181 Andir Jawa Barat</p>
         <p><strong>Phone:</strong> +62 22 4237083</p>
-        <a href="https://www.instagram.com/bonti.youthministry/"><img src="insta    `gram.png" alt="Instagram" class="icon-social"></a>
+        <a href="https://www.instagram.com/bonti.youthministry/"><img src="instagram.png" alt="Instagram" class="icon-social"></a>
       </div>
       <div class="footer-section">
         <h3>Join Us! At 10 AM SUNDAY</h3>
@@ -117,6 +115,40 @@
       </div>
     </div>
   </footer>
+
+  <!-- Modal Pilihan Login -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Pilih Jenis Login</h2>
+      <div class="login-options">
+        <a href="login_admin.html" class="btn-option">Login Admin</a>
+        <a href="login_jemaat.html" class="btn-option">Login Jemaat</a>
+      </div>
+      <button class="btn-close" id="closeModal">Tutup</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const loginBtn = document.getElementById('btnLogin');
+    const modal = document.getElementById('loginModal');
+    const closeModal = document.getElementById('closeModal');
+
+    loginBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>
