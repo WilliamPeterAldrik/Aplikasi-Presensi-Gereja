@@ -7,10 +7,15 @@ const server = http.createServer((req, res) => {
     let fileLocation
     switch (d.pathname) {
         case '/':   
-            fileLocation = 'index.html'
+            fileLocation = 'pages/home.html'
             break
+        case '/about':
+            fileLocation = 'pages/about.html'
+            break
+        case '/absen':
+            fileLocation = 'pages/absen.html'
+            break
+        default:
+            fileLocation = 'pages/home.html'
         }
-})
-server.listen(8888, () => {
-    console.log("Server run at port 8888")
 })
