@@ -322,3 +322,69 @@ footer {
   to { opacity: 1; transform: scale(1); }
 }
 
+
+/*LOGIN ADMIN */
+.admin-login-content {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+  width: 350px;
+  position: relative;
+}
+
+.admin-login-content h2 {
+  color: #2e8ca5;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.btn-login-admin {
+  background-color: #2e8ca5;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.btn-login-admin:hover {
+  background-color: #1c6c83;
+}
+
+.back-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: white;
+  border: 1px solid #2e8ca5;
+  color: #2e8ca5;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.back-btn:hover {
+  background-color: #2e8ca5;
+  color: white;
+}
+
