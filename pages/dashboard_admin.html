@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin - Youth GKI Kebonjati</title>
+  <link rel="stylesheet" href="../public/dashboard_admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+      <h3>Admin</h3>
+      <span class="status">✔</span>
+    </div>
+
+    <ul class="menu">
+      <li class="active"><i class="icon">🏠</i> Dashboard</li>
+      <li id="data-btn"><i class="icon">📊</i> Data</li>
+        <ul class="submenu" id="submenu-data">
+            <li class="submenu-item">Lihat Users</li>
+            <li class="submenu-item">Lihat Data Diri</li>
+            <li class="submenu-item">Lihat Role</li>
+        </ul>
+      <li><i class="icon">🔖</i> Absen</li>
+      <li><i class="icon">↩</i> back to home</li>
+      <li><i class="icon">🚪</i> Log Out</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="menu-toggle">☰</div>
+      <input type="text" class="search" placeholder="Search projects">
+      <div class="admin-dropdown">
+        <span id="adminBtn">Admin ▼</span>
+        <ul id="dropdownMenu">
+          <li>Profile</li>
+          <li>Settings</li>
+          <li>Logout</li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Dashboard Card -->
+    <section class="dashboard-card">
+      <div class="card-header">
+        <div class="title-group">
+          <div class="icon-home">🏠</div>
+          <h2>Dashboard</h2>
+        </div>
+        <span class="overview">Overview ℹ</span>
+      </div>
+
+      <!-- Chart Container -->
+      <div class="chart-container">
+        <canvas id="chart"></canvas>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+    // dropdown
+    const adminBtn = document.getElementById("adminBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    adminBtn.addEventListener("click", () => {
+    dropdownMenu.style.display =
+        dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", (e) => {
+    if (!adminBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.style.display = "none";
+    }
+    });
+
+    // Sidebar navigation
+    const sidebarItems = document.querySelectorAll(".menu li");
+
+    sidebarItems[0].addEventListener("click", () => {
+        window.location.href = "dashboard_admin.html";
+    });
+
+    sidebarItems[2].addEventListener("click", () => {
+        window.location.href = "absen.html";
+    });
+
+    sidebarItems[3].addEventListener("click", () => {
+        window.location.href = "../index.html";
+    });
+
+    sidebarItems[4].addEventListener("click", () => {
+        window.location.href = "logout.html";
+    });
+
+    // --- Dropdown Data ---
+    const dataBtn = document.getElementById("data-btn");
+    const submenuData = document.getElementById("submenu-data");
+
+    dataBtn.addEventListener("click", () => {
+        submenuData.style.display =
+        submenuData.style.display === "block" ? "none" : "block";
+    });
+
+    // Submenu click actions
+    const submenuItems = document.querySelectorAll(".submenu-item");
+
+    submenuItems[0].addEventListener("click", () => {
+        window.location.href = "lihat_users.html";
+    });
+
+    submenuItems[1].addEventListener("click", () => {
+        window.location.href = "lihat_data_diri.html";
+    });
+
+    submenuItems[2].addEventListener("click", () => {
+        window.location.href = "lihat_role.html";
+    });
+
+</script>
+</body>
+</html>
