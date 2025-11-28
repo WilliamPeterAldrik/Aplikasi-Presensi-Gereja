@@ -6,7 +6,7 @@ class User {
   constructor() {
     this.db = mysql.createConnection(dbConfig.db);
     this.db.connect((err) => {
-      if (err) throw err;
+    if (err) throw err;
       console.log("MySQL connected (User)");
       // Detect role column naming in `user` table (id_role, idRole, Role_idRole, etc.)
       this.roleColumn = 'idRole'; // default to common column name used by the rest of project
