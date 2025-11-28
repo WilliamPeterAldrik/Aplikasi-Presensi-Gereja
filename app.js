@@ -11,17 +11,22 @@ const port = 3000;
 // Folder static (CSS, JS, gambar)
 app.use(express.static(path.join(__dirname, "public")));
 
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "home.html"));
+});
+
 // Route untuk setiap halaman
 app.get("/home.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages", "home.html"));
 });
 
-app.get("/absen.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "pages", "absen.html"));
+app.get("/absen_u.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "absen_u.html"));
 });
 
-app.get("/aboutus.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "pages", "aboutus.html"));
+app.get("/aboutus_u.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "aboutus_u.html"));
 });
 
 app.get("/login", (req, res) => {

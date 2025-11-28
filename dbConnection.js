@@ -1,10 +1,10 @@
-const mysql = require("mysql")
+import mysql from "mysql"
 
-const connection = mysql.createConnection({
+const db = mysql.createConnection({
     host: "127.0.0.1",
     user: "root",
     password: "",
-    database: "AplikasiGereja"
+    database: "mydb"
 })
 
 
@@ -13,11 +13,11 @@ db.connect((err) => {
     console.log("Connected to database")
 })
 
-connection.connect((err) => {
-    if (err) throw err
-    connection.query("SELECT * FROM member", (err, result,fields) => {
-        if (err) throw err
-        console.log(result)
-        connection.end()
-    })
-})
+// db.connect((err) => {
+//     if (err) throw err
+//     connection.query("SELECT * FROM member", (err, result,fields) => {
+//         if (err) throw err
+//         console.log(result)
+//         connection.end()
+//     })
+// })
