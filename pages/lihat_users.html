@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lihat Users - Admin</title>
+  <link rel="stylesheet" href="../public/dashboard_admin.css">
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+      <h3>Admin</h3>
+      <span class="status">✔</span>
+    </div>
+
+    <ul class="menu">
+      <li onclick="location.href='dashboard_admin.html'"><i class="icon">🏠</i> Dashboard</li>
+
+      <li id="data-btn"><i class="icon">📊</i> Data</li>
+      <ul class="submenu" id="submenu-data" style="display:block;">
+        <li class="submenu-item" style="color:#0066cc;">Lihat Users</li>
+        <li class="submenu-item" onclick="location.href='lihat_data_diri.html'">Lihat Data Diri</li>
+        <li class="submenu-item" onclick="location.href='lihat_role.html'">Lihat Role</li>
+      </ul>
+
+      <li onclick="location.href='absen.html'"><i class="icon">🔖</i> Absen</li>
+      <li onclick="location.href='../index.html'"><i class="icon">↩</i> back to home</li>
+      <li onclick="location.href='logout.html'"><i class="icon">🚪</i> Log Out</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="menu-toggle">☰</div>
+      <input type="text" class="search" placeholder="Search projects">
+      <div class="admin-dropdown">
+        <span id="adminBtn">Admin ▼</span>
+        <ul id="dropdownMenu">
+          <li>Profile</li>
+          <li>Settings</li>
+          <li>Logout</li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Header Halaman -->
+    <section class="dashboard-card">
+      <div class="card-header">
+        <div class="title-group">
+          <div class="icon-home">🏠</div>
+          <h2>Pengguna</h2>
+        </div>
+
+        <button 
+          style="
+            background:#1a73e8;
+            color:white;
+            border:none;
+            padding:6px 10px;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:12px;">
+          Tambahkan Pengguna
+        </button>
+      </div>
+
+      <!-- Table Container -->
+      <div style="padding:20px;">
+        <label>
+          <select style="padding:5px 10px;">
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+          </select>
+          entries per page
+        </label>
+
+        <div style="float:right; margin-bottom:10px;">
+          Search: <input type="text" style="padding:5px;">
+        </div>
+
+        <!-- Tabel Users -->
+        <table 
+          style="
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            margin-top:20px;
+            border-radius:10px;
+            overflow:hidden;">
+          
+          <thead style="background:#f2f5f8;">
+            <tr>
+              <th style="padding:10px;">ID</th>
+              <th style="padding:10px;">Nama Lengkap</th>
+              <th style="padding:10px;">Email</th>
+              <th style="padding:10px;">Role</th>
+              <th style="padding:10px;">Edit</th>
+              <th style="padding:10px;">Delete</th>
+            </tr>
+          </thead>
+        </table>
+
+        <!-- Pagination -->
+        <div style="margin-top:20px; text-align:center;">
+          « ‹ <input type="text" value="1" style="width:30px; text-align:center;"> › »
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+<script>
+  // Dropdown Admin
+  const adminBtn = document.getElementById("adminBtn");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  adminBtn.addEventListener("click", () => {
+    dropdownMenu.style.display =
+      dropdownMenu.style.display === "block" ? "none" : "block";
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!adminBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.style.display = "none";
+    }
+  });
+
+  // Dropdown Data
+  const dataBtn = document.getElementById("data-btn");
+  const submenuData = document.getElementById("submenu-data");
+
+  dataBtn.addEventListener("click", () => {
+    submenuData.style.display =
+      submenuData.style.display === "block" ? "none" : "block";
+  });
+</script>
+
+</body>
+</html>

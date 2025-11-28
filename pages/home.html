@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Absensi Youth Ministry GKI Kebonjati</title>
+  <title>Youth Ministry GKI Kebonjati</title>
 
   <!-- Font & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -116,64 +116,42 @@
     </div>
   </footer>
 
-  <!-- Modal Pilihan Login -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>Pilih Jenis Login</h2>
-      <div class="login-options">
-        <a href="login_admin.html" class="btn-option">Login Admin</a>
-        <a href="login_jemaat.html" class="btn-option">Login Jemaat</a>
-      </div>
-      <button class="btn-close" id="closeModal">Tutup</button>
+  <!-- Modal Login -->
+  <div id="adminLoginModal" class="modal">
+    <div class="admin-login-content">
+      <button class="back-btn" id="backToChoice">← Kembali</button>
+      <h2>Login</h2>
+      <form class="login-form">
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <a href="login.html" type="submit" class="btn-login-admin">Login</a>
+        <!-- <button type="submit" class="btn-login-admin">Login</button> -->
+      </form>
+      <p>Belum punya akun? <a href="#">Buat Akun</a></p>
     </div>
   </div>
 
-  <!-- Modal Login Admin -->
-<div id="adminLoginModal" class="modal">
-  <div class="admin-login-content">
-    <button class="back-btn" id="backToChoice">← Kembali</button>
-    <h2>Login Admin</h2>
-    <form class="login-form">
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <a href="login_admin.html" type="submit" class="btn-login-admin">Login</a>
-      <!-- <button type="submit" class="btn-login-admin">Login</button> -->
-    </form>
-    <p>Belum punya akun? <a href="#">Buat Akun</a></p>
-  </div>
-</div>
-
 <script>
   const loginBtn = document.getElementById('btnLogin');
-  const modal = document.getElementById('loginModal');
-  const closeModal = document.getElementById('closeModal');
-  const adminLoginLink = document.querySelector('.btn-option[href="login_admin.html"]');
   const adminLoginModal = document.getElementById('adminLoginModal');
   const backToChoice = document.getElementById('backToChoice');
 
-  // Saat klik "Login Admin"
-  adminLoginLink.addEventListener('click', (e) => {
+  // Tombol Login di navbar → buka modal admin langsung
+  loginBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    document.getElementById('loginModal').style.display = 'none';
     adminLoginModal.style.display = 'flex';
   });
 
   // Tombol kembali
   backToChoice.addEventListener('click', () => {
     adminLoginModal.style.display = 'none';
-    document.getElementById('loginModal').style.display = 'flex';
   });
 
-  // Klik luar popup → tutup
+  // Klik di luar modal → tutup
   window.addEventListener('click', (e) => {
     if (e.target === adminLoginModal) {
       adminLoginModal.style.display = 'none';
     }
-  });
-
-  loginBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.style.display = 'flex';
   });
 
   closeModal.addEventListener('click', () => {

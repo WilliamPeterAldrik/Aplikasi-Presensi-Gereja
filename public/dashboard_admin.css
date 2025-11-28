@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #eef4f8;
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: white;
+  padding: 20px;
+  height: 100vh;
+  border-right: 1px solid #dce3ea;
+  position: fixed;
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  width: 70px;
+}
+
+.profile .status {
+  font-size: 20px;
+  color: green;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.menu li {
+  padding: 12px 10px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu li.active,
+.menu li:hover {
+  background: #e6f1ff;
+  color: #0066cc;
+}
+
+/* MAIN CONTENT */
+.main {
+  margin-left: 230px;
+  padding: 20px;
+  width: 100%;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  background: #f0f3f5;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  width: 250px;
+  border-radius: 6px;
+}
+
+.admin-dropdown {
+  position: relative;
+}
+
+.admin-dropdown span {
+  cursor: pointer;
+}
+
+.admin-dropdown ul {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 120px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 8px;
+}
+
+.admin-dropdown ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.admin-dropdown ul li:hover {
+  background: #eee;
+}
+
+/* DASHBOARD CARD */
+.dashboard-card {
+  background: white;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.card-header {
+  background: #d7e7f0;
+  padding: 20px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart-container {
+  padding: 20px;
+}
+
+/* SUBMENU */
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding-left: 25px;
+  display: none; /* awalnya tersembunyi */
+}
+
+.submenu-item {
+  padding: 8px 10px;
+  margin: 3px 0;
+  cursor: pointer;
+  font-size: 13px;
+  color: #555;
+}
+
+.submenu-item:hover {
+  color: #0066cc;
+}
+
+.card-header > button {
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    border-radius: 6px !important;
+}
+
+
+
+
