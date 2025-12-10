@@ -1,0 +1,131 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+/* FORM */
+.form-container{
+  max-width:700px;
+  margin:50px auto;
+  background:white;
+  padding:40px;
+  border-radius:15px;
+  box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+
+.form-container h2{
+  text-align:center;
+  color:#2e8ca5;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+label{
+  font-weight:600;
+  margin-top:10px;
+  display:block;
+  color:#333;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  margin-top:5px;
+  font-family:Poppins;
+}
+
+button{
+  width:100%;
+  background:#2e8ca5;
+  color:white;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  margin-top:20px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#1c6c83;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;       /* jarak kecil antara checkbox dan teks */
+  margin: 6px 0;
+}
+
+/* Supaya teks label terlihat rapi */
+.option-row .option-label {
+  padding-right: 10px;
+  color: #333;
+  font-size: 15px;
+}
+
+/* styling input (checkbox/radio) */
+.option-row input[type="checkbox"],
+.option-row input[type="radio"] {
+  justify-self: center;   /* letakkan input di tengah kolom kanan */
+  width: 18px;
+  height: 18px;
+  accent-color: #2e8ca5;  /* modern browsers: warna centang */
+}
+
+/* grup judul kecil (section label) */
+.section-subtitle {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #333;
+}
+
+.info-text{
+    font-size: 14px;
+    color:#666;
+    margin-top:-5px;
+    margin-bottom:12px;
+}

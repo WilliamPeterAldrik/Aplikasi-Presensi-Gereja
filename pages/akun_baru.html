@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buat Akun Youth</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/form.css">
+
+</head>
+
+<body>
+
+  <!-- NAVBAR (sama seperti home) -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="/img/logo_youth.jpg" alt="Logo">
+        <h3>Youth Ministry GKI Kebonjati</h3>
+      </div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<div class="nav-space"></div>
+
+<div class="form-container">
+  <h2>Buat Akun</h2>
+
+  <form>
+
+    <label>Nama Lengkap</label>
+    <input type="text" required>
+
+    <label>Nama Panggilan</label>
+    <input type="text" required>
+
+    <label>No HP</label>
+    <input type="tel" required>
+
+    <label>Tanggal Ulang Tahun</label>
+    <input type="date" required>
+
+    <label>ID Line</label>
+    <input type="text">
+
+    <label>Username IG</label>
+    <input type="text">
+
+    <label>Alamat Lengkap</label>
+    <textarea rows="3"></textarea>
+
+    <label>Hobi</label>
+    <input type="text">
+
+    <label>Teman Dekat di GKI Kebonjati</label>
+    <input type="text">
+
+
+    <div class="section-subtitle">Minat Pelayanan (boleh lebih dari 1)</div>
+
+    <div class="option-row">
+        <input type="checkbox" name="minat[]" value="WL">
+        <span>Worship Leader (Liturgos)</span>
+    </div>
+    <div class="option-row">
+        <input type="checkbox" name="minat[]" value="WL">
+        <span>Singer</span>
+    </div>
+    <div class="option-row">
+        <input type="checkbox" name="minat[]" value="WL">
+        <span>Usher</span>
+    </div>
+    <div class="option-row">
+        <input type="checkbox" name="minat[]" value="WL">
+        <span>Multimedia</span>
+    </div>
+    <div class="option-row">
+        <input type="checkbox" name="minat[]" value="WL">
+        <span>Drum/Cajon</span>
+    </div>
+    <div class="option-row">
+        <input type="checkbox" name="minat[]" value="WL">
+        <span>Piano/Keyboard</span>
+    </div>
+    <div class="option-row">
+        <input type="checkbox" name="minat[]" value="WL">
+        <span>Gitar</span>
+    </div>
+    <div class="option-row">
+        <input type="checkbox" name="minat[]" value="WL">
+        <span>Bass</span>
+    </div>
+
+    <!-- Keanggotaan (hanya satu pilihan) -->
+    <div class="section-subtitle">Keanggotaan</div>
+    <p class="info-text">
+        Anggota adalah jemaat yang sudah melakukan baptis SIDI / baptis dewasa di GKI Kebonjati
+    </p>
+    <div class="option-row">
+        <input type="radio" name="keanggotaan" value="Simpatisan">
+        <span>Anggota di GKI Kebonjati</span>
+    </div>
+    <div class="option-row">
+        <input type="radio" name="keanggotaan" value="Simpatisan">
+        <span>Simpatisan</span>
+    </div>
+    <div class="option-row">
+        <input type="radio" name="keanggotaan" value="Simpatisan">
+        <span>Anggota di GKI lain</span>
+    </div>
+
+    <button type="submit">Kirim</button>
+
+  </form>
+</div>
+
+</body>
+</html>
