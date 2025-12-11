@@ -20,9 +20,9 @@
       </div>
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
-        <li><a href="absen_u.html">Absen</a></li>
+        <li><a href="kegiatan.html">Kegiatan</a></li>
         <li><a href="aboutus_u.html" class="active">About Us</a></li>
-        <li><a href="#" class="btn-login">Login</a></li>
+        <li><a href="" class="btn-login" id="btnLogin">Login</a></li>
       </ul>
     </nav>
   </header>
@@ -101,5 +101,52 @@
     </div>
   </footer>
 
+  <!-- Modal Login -->
+  <div id="adminLoginModal" class="modal">
+    <div class="admin-login-content">
+      <button class="back-btn" id="backToChoice">← Kembali</button>
+      <h2>Login</h2>
+      <form class="login-form">
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <a href="home_admin.html" type="submit" class="btn-login-admin">Login</a>
+        <!-- <button type="submit" class="btn-login-admin">Login</button> -->
+      </form>
+      <p>Belum punya akun? <a href="akun_baru.html">Buat Akun</a></p>
+    </div>
+  </div>
+
+<script>
+  const loginBtn = document.getElementById('btnLogin');
+  const adminLoginModal = document.getElementById('adminLoginModal');
+  const backToChoice = document.getElementById('backToChoice');
+
+  // tombol login navbar -> buka modal
+  loginBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    adminLoginModal.style.display = 'flex';
+  });
+
+  // tombol kembali
+  backToChoice.addEventListener('click', () => {
+    adminLoginModal.style.display = 'none';
+  });
+
+  // klik di luar modal -> tutup
+  window.addEventListener('click', (e) => {
+    if (e.target === adminLoginModal) {
+      adminLoginModal.style.display = 'none';
+    }
+  });
+
+  // klik tombol "Buat Akun" -> pindah halaman
+  const createAccountLink = document.querySelector('a[href="akun_baru.html"]');
+  if (createAccountLink) {
+    createAccountLink.addEventListener('click', () => {
+      adminLoginModal.style.display = 'none';
+    });
+  }
+
+</script>
 </body>
 </html>
