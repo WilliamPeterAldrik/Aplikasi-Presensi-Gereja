@@ -9,19 +9,12 @@ router.use(express.static('public'))
 // Halaman Web User
 router.get("/user", userController.index);
 router.get("/users", (req, res) => {
-<<<<<<< HEAD
-	res.sendFile(path.join(__dirname, '..', 'pages', 'lihat_users.html'));
-});
-router.get("/user/create", userController.create);
-router.get('/users/create', (req, res) => {
-	res.sendFile(path.join(__dirname, '..', 'pages', 'add_user.html'));
-=======
+
 	res.sendFile(path.join(__dirname, '..', 'pages','admin','lihat_users.html'));
 });
 router.get("/user/create", userController.create);
 router.get('/users/create', (req, res) => {
 	res.sendFile(path.join(__dirname, '..', 'pages', 'admin','add_user.html'));
->>>>>>> 1b98450 (Perbaikan backend dari role)
 });
 router.post("/user/create", userController.store);
 router.get("/user/edit/:username", userController.edit);

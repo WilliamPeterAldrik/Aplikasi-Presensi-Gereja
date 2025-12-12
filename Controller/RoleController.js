@@ -11,11 +11,7 @@ const create = (req, res) => {
 };
 
 const store = (req, res) => {
-<<<<<<< HEAD
-    const newRole = { nama_role: req.body.nama_role || req.body.role_name || req.body.roleName };
-=======
     const newRole = { nama_role: req.body.nama_role };
->>>>>>> 1b98450 (Perbaikan backend dari role)
     const role = new Role();
     role.save(newRole, (err, result) => {
         if (err) {
@@ -35,13 +31,6 @@ const apiIndex = (req, res) => {
             console.error('Role.all error:', err);
             return res.status(500).json({ error: 'Internal Server Error' });
         }
-<<<<<<< HEAD
-        res.json(roles);
-    });
-};
-
-=======
-
         // mapping backend DB → frontend naming
         const mapped = roles.map(r => ({
             idRole: r.id_role,
@@ -52,8 +41,6 @@ const apiIndex = (req, res) => {
     });
 };
 
-
->>>>>>> 1b98450 (Perbaikan backend dari role)
 const apiShow = (req, res) => {
     const id = req.params.id;
     const role = new Role();
@@ -68,11 +55,7 @@ const apiShow = (req, res) => {
 };
 
 const apiStore = (req, res) => {
-<<<<<<< HEAD
-    const newRole = { nama_role: req.body.nama_role || req.body.role_name || req.body.roleName };
-=======
     const newRole = { nama_role: req.body.nama_role };
->>>>>>> 1b98450 (Perbaikan backend dari role)
     console.log('apiStore payload:', req.body);
     const role = new Role();
     role.save(newRole, (err, result) => {

@@ -38,11 +38,7 @@ document.getElementById("formAddRole").addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const data = {
-<<<<<<< HEAD
-        namaRole: document.getElementById("namaRole").value
-=======
         nama_role: document.getElementById("nama_role").value   // FIX
->>>>>>> 1b98450 (Perbaikan backend dari role)
     };
 
     const res = await fetch("/api/roles", {
