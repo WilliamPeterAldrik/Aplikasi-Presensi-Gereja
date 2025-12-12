@@ -3,12 +3,20 @@ const path = require("path");
 
 const index = (req, res) => {
     // Serve the frontend static page which will fetch users via the API
+<<<<<<< HEAD
     res.sendFile(path.join(__dirname, '..', 'pages', 'lihat_users.html'));
+=======
+    res.sendFile(path.join(__dirname, "..", "pages", "admin", "lihat_users.html"));
+>>>>>>> 1b98450 (Perbaikan backend dari role)
 };
 
 const create = (req, res) => {
     // Serve the add user static page
+<<<<<<< HEAD
     res.sendFile(path.join(__dirname, '..', 'pages', 'add_user.html'));
+=======
+    res.sendFile(path.join(__dirname, '..', 'pages','admin' ,'add_user.html'));
+>>>>>>> 1b98450 (Perbaikan backend dari role)
 };
 
 const store = (req, res) => {
@@ -29,7 +37,11 @@ const store = (req, res) => {
     userBaru.save(payload, (err, result) => {
         if (err) {
             console.error('store error:', err && (err.sqlMessage || err.message || err));
+<<<<<<< HEAD
             return res.sendFile(path.join(__dirname, '..', 'pages', 'add_user.html'));
+=======
+            return res.sendFile(path.join(__dirname, '..', 'pages', 'admin','add_user.html'));
+>>>>>>> 1b98450 (Perbaikan backend dari role)
         }
         res.redirect("/users");
     });
@@ -63,7 +75,11 @@ const apiStore = (req, res) => {
 
 const edit = (req, res) => {
     // Send front-end page; client-side JS will fetch the user via /api/users/:username
+<<<<<<< HEAD
     res.sendFile(path.join(__dirname, '..', 'pages', 'edit_user.html'));
+=======
+    res.sendFile(path.join(__dirname, '..', 'pages', 'admin','edit_user.html'));
+>>>>>>> 1b98450 (Perbaikan backend dari role)
 };
 
 const update = (req, res) => {
@@ -79,7 +95,11 @@ const update = (req, res) => {
 
     user.update(username, updatedData, (err) => {
         if (err) {
+<<<<<<< HEAD
             return res.sendFile(path.join(__dirname, '..', 'pages', 'edit_user.html'));
+=======
+            return res.sendFile(path.join(__dirname, '..', 'pages', 'admin','edit_user.html'));
+>>>>>>> 1b98450 (Perbaikan backend dari role)
         }
         res.redirect("/users");
     });

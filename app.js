@@ -68,6 +68,13 @@ app.get("/add_role.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages", "admin","add_role.html"));
 });
 
+<<<<<<< HEAD
+=======
+app.get("/add_user.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "admin","add_user.html"));
+});
+
+>>>>>>> 1b98450 (Perbaikan backend dari role)
 app.get("/edit_role.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages","admin", "edit_role.html"));
 });

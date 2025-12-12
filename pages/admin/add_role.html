@@ -18,7 +18,11 @@
                 <form id="formAddRole">
                     <div class="mb-3">
                         <label class="form-label">Nama Role</label>
+<<<<<<< HEAD
                         <input type="text" id="namaRole" class="form-control" required>
+=======
+                        <input type="text" id="nama_role" class="form-control" required>
+>>>>>>> 1b98450 (Perbaikan backend dari role)
                     </div>
 
                     <button type="submit" class="btn btn-success">Simpan</button>
@@ -34,7 +38,11 @@ document.getElementById("formAddRole").addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const data = {
+<<<<<<< HEAD
         namaRole: document.getElementById("namaRole").value
+=======
+        nama_role: document.getElementById("nama_role").value   // FIX
+>>>>>>> 1b98450 (Perbaikan backend dari role)
     };
 
     const res = await fetch("/api/roles", {
@@ -54,5 +62,9 @@ document.getElementById("formAddRole").addEventListener("submit", async (e) => {
 });
 </script>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1b98450 (Perbaikan backend dari role)
 </body>
 </html>
