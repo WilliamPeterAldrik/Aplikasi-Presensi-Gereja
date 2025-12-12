@@ -1,72 +1,52 @@
 JURNAL PROGRES MINGGUAN
 
 Proyek: Sistem Presensi Gereja Berbasis Web
-Minggu ke-3
-Tanggal: 21 – 24 Oktober 2025
+Minggu ke-12
+Tanggal: 9 – 13 Desember 2025
 
 1. Anggota dan Pembagian Tugas
-1	Rachel Apriyani	2372012	Membuat halaman untuk menampilkan daftar pengguna (list users) dan role, serta melakukan perbaikan tampilan halaman agar lebih konsisten.
-2	William Peter Aldrik	2372029	Merapikan struktur file proyek, memastikan seluruh halaman dapat diakses melalui localhost, melakukan pengecekan dan pengujian koneksi database, serta memastikan routing dan pathing berjalan dengan baik.
+  1	Rachel Apriyani	2372012	Mengembangkan halaman registrasi pengguna, membuat form registrasi dan tampilan antarmuka, namun proses registrasi belum sepenuhnya berfungsi.
+  2	William Peter Aldrik	2372029	Menyelesaikan error pada halaman Lihat Role, memperbaiki fitur tambah role dan update role agar dapat tersimpan ke database dengan benar.
+   
+2. Latar Belakang
 
-3. Latar Belakang
+Pada fase ini, sistem presensi gereja telah memiliki struktur dasar yang stabil, termasuk koneksi database dan halaman dasar seperti List Users dan Role. Minggu ini fokus diarahkan untuk memperbaiki fitur manajemen role serta mulai membangun halaman registrasi sebagai fondasi autentikasi pengguna.
 
-Presensi jemaat merupakan bagian penting dari kegiatan administrasi gereja karena membantu pihak gereja dalam memantau kehadiran dan partisipasi jemaat. Proses presensi yang masih dilakukan secara manual berpotensi menimbulkan kesalahan pencatatan, duplikasi data, serta kesulitan dalam pelaporan.
+3. Tujuan Pengerjaan Minggu Ini
 
-Untuk mengatasi hal tersebut, kelompok kami mengembangkan Sistem Presensi Gereja Berbasis Web. Sistem ini bertujuan untuk memudahkan proses pencatatan kehadiran jemaat secara digital dengan antarmuka yang sederhana, terintegrasi, dan mudah digunakan oleh petugas maupun admin gereja.
-
-3. Tujuan Pengerjaan
-
- 1.Tujuan dari pengerjaan minggu ini adalah untuk:
- 
- 2.Menyempurnakan struktur proyek agar lebih teratur dan mudah dikembangkan.
- 
- 3.Memastikan setiap halaman dapat diakses melalui localhost tanpa error.
- 
- 4.Melakukan pengujian koneksi antara aplikasi dan database MySQL.
- 
- 5.Menambahkan halaman daftar pengguna (list users) beserta role untuk mempermudah pengelolaan data pengguna.
- 
- 6.Menyiapkan pondasi untuk tahap pengembangan fitur CRUD dan autentikasi pengguna.
+Memperbaiki error pada halaman Lihat Role.
+Mengaktifkan fitur tambah role dan memastikan data tersimpan ke database.
+Mengaktifkan fitur update role dan memastikan perubahan dapat disimpan.
+Mengembangkan halaman registrasi pengguna.
+Menyiapkan dasar untuk proses autentikasi pengguna.
 
 4. Progress Pengerjaan Minggu Ini
-a. Perapihan Struktur File Proyek
 
-Struktur folder proyek telah diperbaiki agar lebih sesuai dengan pola MVC (Model-View-Controller). Folder routes, views, dan public sudah diatur ulang agar memudahkan pengembangan, dan setiap file route sudah diarahkan dengan benar.
+a. Penyelesaian Error pada Halaman Lihat Role (William)
+Debugging untuk menemukan penyebab role tidak bisa ditambahkan.
+Memperbaiki query SQL untuk proses insert role, memastikan field auto-increment dan primary key berfungsi benar.
+Memperbaiki fungsi update role agar dapat menyimpan data perubahan ke database.
+Melakukan uji coba penuh pada halaman Role dan memastikan tidak ada error routing, query, ataupun tampilan.
 
-b. Akses Halaman Melalui Localhost
-
-Seluruh halaman kini dapat diakses langsung melalui localhost tanpa error. Pathing antara file HTML di folder pages/ dan resource (CSS, gambar, serta script) di folder public/ telah diperbaiki agar dapat dimuat dengan benar di browser.
-
-c. Pengecekan dan Pengujian Koneksi Database
-
-Telah dilakukan pengecekan ulang pada file db.js dan pengujian koneksi ke MySQL menggunakan modul mysql2. Koneksi dinyatakan berhasil, dan aplikasi dapat membaca tabel dari database dengan baik.
-
-d. Pembuatan Halaman List Users dan Role
-
-Salah satu anggota kelompok telah menambahkan halaman List Users dan Role yang menampilkan data pengguna beserta perannya di sistem. Halaman ini akan menjadi dasar untuk implementasi fitur CRUD di minggu berikutnya.
+b. Pengembangan Halaman Registrasi (Rachel)
+Membuat form registrasi dengan struktur dan tampilan Bootstrap.
+Menambahkan route untuk menampilkan halaman registrasi.
+Menghubungkan halaman ke endpoint backend (masih dalam tahap pengerjaan).
+Proses penyimpanan data pengguna belum dapat dilakukan, masih menunggu implementasi backend.
 
 5. Hasil yang Telah Dicapai
 
-Struktur file proyek lebih rapi dan sesuai standar MVC.
-
-Semua halaman sudah dapat diakses melalui localhost.
-
-Koneksi ke database MySQL berhasil diuji dan berjalan stabil.
-
-Halaman List Users dan Role telah selesai dibuat dan diintegrasikan ke sistem.
+Halaman Lihat Role kini berfungsi sepenuhnya.
+Fitur tambah dan update role berhasil dan data masuk ke database tanpa error.
+Struktur logika backend untuk Role menjadi lebih stabil dan mudah dikembangkan.
+Halaman registrasi pengguna selesai dibuat dari sisi front-end.
+Proses autentikasi telah dipersiapkan dan siap dilanjutkan pada minggu berikutnya.
 
 6. Rencana Pekerjaan Minggu Berikutnya
 
-Mengembangkan fitur CRUD untuk data pengguna dan absensi.
-
-Menghubungkan controller dan model dengan database.
-
-Menambahkan fitur autentikasi login (admin/petugas).
-
-Menyempurnakan tampilan halaman dengan komponen Bootstrap.
-
-Menyiapkan halaman dashboard yang menampilkan data kehadiran secara ringkas.
+Menyelesaikan backend proses registrasi agar data dapat tersimpan di database.
+Membangun fitur login dan autentikasi admin/petugas.
 
 7. Kesimpulan
 
-Pada minggu ke-3, tim berhasil merapikan struktur proyek, memastikan semua halaman dapat diakses dengan baik, serta menyelesaikan pengujian koneksi ke database. Selain itu, telah dibuat halaman List Users dan Role sebagai langkah awal menuju pengelolaan data pengguna yang dinamis. Dengan pondasi aplikasi yang kini lebih stabil, tim siap melanjutkan ke tahap pengembangan fitur CRUD dan autentikasi pada minggu berikutnya.
+Pada minggu ini, tim berhasil menyelesaikan masalah di halaman Role dan memastikan fitur tambah serta update role berfungsi sempurna. Halaman registrasi juga telah dibuat dan siap diintegrasikan dengan backend. Progres ini menjadi langkah penting menuju implementasi autentikasi serta manajemen pengguna, yang akan menjadi fokus pengembangan selanjutnya.
