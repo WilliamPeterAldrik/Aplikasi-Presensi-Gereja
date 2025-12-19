@@ -48,6 +48,14 @@ app.get("/home_admin.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages", "admin","home_admin.html"));
 });
 
+app.get("/absen_a.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "admin","absen_a.html"));
+});
+
+app.get("/aboutus_a.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "admin","aboutus_a.html"));
+});
+
 app.get("/contactus_u.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages", "","contactus_u.html"));
 });
