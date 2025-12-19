@@ -1,52 +1,56 @@
 JURNAL PROGRES MINGGUAN
 
 Proyek: Sistem Presensi Gereja Berbasis Web
-Minggu ke-12
-Tanggal: 9 – 13 Desember 2025
+Tanggal: 15 – 19 Desember 2025
 
 1. Anggota dan Pembagian Tugas
-  1	Rachel Apriyani	2372012	Mengembangkan halaman registrasi pengguna, membuat form registrasi dan tampilan antarmuka, namun proses registrasi belum sepenuhnya berfungsi.
-  2	William Peter Aldrik	2372029	Menyelesaikan error pada halaman Lihat Role, memperbaiki fitur tambah role dan update role agar dapat tersimpan ke database dengan benar.
-   
+
+1	Rachel Apriyani	2372012	Merapikan alur navigasi web agar lebih terstruktur, serta menambahkan halaman absensi sebagai bagian utama dari sistem presensi dan halaman about us untuk admin.
+2	William Peter Aldrik	2372029	Mengimplementasikan fitur QR Code untuk setiap user berdasarkan username, serta memastikan QR Code dapat di-generate dan ditampilkan dengan benar.
+
 2. Latar Belakang
 
-Pada fase ini, sistem presensi gereja telah memiliki struktur dasar yang stabil, termasuk koneksi database dan halaman dasar seperti List Users dan Role. Minggu ini fokus diarahkan untuk memperbaiki fitur manajemen role serta mulai membangun halaman registrasi sebagai fondasi autentikasi pengguna.
+Untuk meningkatkan efisiensi dan keakuratan proses presensi, sistem perlu memiliki mekanisme identifikasi pengguna yang cepat dan unik. QR Code dipilih sebagai solusi karena mudah digunakan dan dapat merepresentasikan identitas setiap pengguna secara digital. Selain itu, alur web yang rapi serta halaman absensi yang jelas sangat diperlukan agar sistem dapat digunakan dengan nyaman oleh petugas gereja.
 
 3. Tujuan Pengerjaan Minggu Ini
 
-Memperbaiki error pada halaman Lihat Role.
-Mengaktifkan fitur tambah role dan memastikan data tersimpan ke database.
-Mengaktifkan fitur update role dan memastikan perubahan dapat disimpan.
-Mengembangkan halaman registrasi pengguna.
-Menyiapkan dasar untuk proses autentikasi pengguna.
+Mengimplementasikan QR Code unik untuk setiap pengguna berdasarkan username.
+Memastikan QR Code dapat ditampilkan dan digunakan sebagai identitas presensi.
+Merapikan alur navigasi dan struktur halaman web.
+Menambahkan halaman absensi sebagai inti dari sistem presensi.
+Menyiapkan integrasi antara QR Code dan proses pencatatan kehadiran.
 
 4. Progress Pengerjaan Minggu Ini
+a. Implementasi QR Code untuk Setiap User (William)
 
-a. Penyelesaian Error pada Halaman Lihat Role (William)
-Debugging untuk menemukan penyebab role tidak bisa ditambahkan.
-Memperbaiki query SQL untuk proses insert role, memastikan field auto-increment dan primary key berfungsi benar.
-Memperbaiki fungsi update role agar dapat menyimpan data perubahan ke database.
-Melakukan uji coba penuh pada halaman Role dan memastikan tidak ada error routing, query, ataupun tampilan.
+Mengembangkan fitur generate QR Code secara otomatis berdasarkan username pengguna.
+Setiap QR Code bersifat unik dan merepresentasikan identitas user di dalam sistem.
+QR Code dapat ditampilkan pada halaman profil atau halaman tertentu yang telah disiapkan.
+Melakukan pengujian untuk memastikan QR Code yang dihasilkan konsisten dan sesuai dengan data user.
 
-b. Pengembangan Halaman Registrasi (Rachel)
-Membuat form registrasi dengan struktur dan tampilan Bootstrap.
-Menambahkan route untuk menampilkan halaman registrasi.
-Menghubungkan halaman ke endpoint backend (masih dalam tahap pengerjaan).
-Proses penyimpanan data pengguna belum dapat dilakukan, masih menunggu implementasi backend.
+b. Perapihan Alur Web dan Penambahan Halaman Absensi (Rachel)
+
+Merapikan alur navigasi antar halaman agar lebih mudah dipahami oleh pengguna.
+Menyesuaikan urutan menu dan halaman sesuai dengan proses presensi.
+Menambahkan halaman Absensi sebagai tempat utama pencatatan kehadiran jemaat.
+Menyiapkan struktur halaman absensi agar dapat diintegrasikan dengan fitur scan QR Code.
 
 5. Hasil yang Telah Dicapai
 
-Halaman Lihat Role kini berfungsi sepenuhnya.
-Fitur tambah dan update role berhasil dan data masuk ke database tanpa error.
-Struktur logika backend untuk Role menjadi lebih stabil dan mudah dikembangkan.
-Halaman registrasi pengguna selesai dibuat dari sisi front-end.
-Proses autentikasi telah dipersiapkan dan siap dilanjutkan pada minggu berikutnya.
+Setiap user kini memiliki QR Code unik berdasarkan username.
+Fitur QR Code siap digunakan sebagai identitas dalam proses presensi.
+Alur web menjadi lebih rapi dan terstruktur.
+Halaman absensi telah dibuat dan terintegrasi ke dalam alur aplikasi.
+Sistem semakin mendekati implementasi presensi berbasis scan QR Code.
 
 6. Rencana Pekerjaan Minggu Berikutnya
 
-Menyelesaikan backend proses registrasi agar data dapat tersimpan di database.
-Membangun fitur login dan autentikasi admin/petugas.
+Mengintegrasikan proses scan QR Code dengan pencatatan kehadiran di database.
+Menambahkan validasi agar satu QR Code hanya dapat digunakan satu kali per jadwal ibadah.
+Menyempurnakan tampilan halaman absensi.
+Melanjutkan pengembangan fitur laporan kehadiran.
+Melakukan pengujian end-to-end alur presensi.
 
 7. Kesimpulan
 
-Pada minggu ini, tim berhasil menyelesaikan masalah di halaman Role dan memastikan fitur tambah serta update role berfungsi sempurna. Halaman registrasi juga telah dibuat dan siap diintegrasikan dengan backend. Progres ini menjadi langkah penting menuju implementasi autentikasi serta manajemen pengguna, yang akan menjadi fokus pengembangan selanjutnya.
+Pada minggu ini, tim berhasil menambahkan fitur QR Code sebagai identitas unik setiap pengguna dan menyiapkan halaman absensi sebagai pusat pencatatan kehadiran. Perapihan alur web juga membuat sistem lebih mudah digunakan. Dengan pencapaian ini, Sistem Presensi Gereja Berbasis Web semakin siap untuk memasuki tahap integrasi penuh antara QR Code dan proses absensi.
