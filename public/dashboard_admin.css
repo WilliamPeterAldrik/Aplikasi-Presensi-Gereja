@@ -9,7 +9,7 @@ body {
 .sidebar {
   width: 230px;
   background: white;
-  padding: 20px;
+  padding: 5px;
   height: 100vh;
   border-right: 1px solid #dce3ea;
   position: fixed;
@@ -20,7 +20,7 @@ body {
 }
 
 .profile img {
-  width: 70px;
+  width: 50px;
 }
 
 .profile .status {
@@ -48,6 +48,10 @@ body {
 .menu li.active,
 .menu li:hover {
   background: #e6f1ff;
+  color: #0066cc;
+}
+
+.menu li.active2{
   color: #0066cc;
 }
 
@@ -106,15 +110,15 @@ body {
 /* DASHBOARD CARD */
 .dashboard-card {
   background: white;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 12px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .card-header {
   background: #d7e7f0;
-  padding: 20px;
-  border-radius: 12px 12px 0 0;
+  padding: 10px;
+  border-radius: 10px 20px 0 0;
   display: flex;
   justify-content: space-between;
 }
@@ -122,11 +126,11 @@ body {
 .title-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .chart-container {
-  padding: 20px;
+  padding: 10px;
 }
 
 /* SUBMENU */
@@ -150,7 +154,7 @@ body {
 }
 
 .card-header > button {
-    padding: 6px 10px !important;
+    padding: 10px !important;
     font-size: 12px !important;
     border-radius: 6px !important;
 }

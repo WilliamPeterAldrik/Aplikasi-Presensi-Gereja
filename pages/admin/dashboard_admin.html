@@ -13,6 +13,7 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="profile">
+      <h3>Youth Ministry Kebonjati</h3>
       <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
       <h3>Admin</h3>
       <span class="status">✔</span>
@@ -23,10 +24,14 @@
       <li id="data-btn"><i class="icon">📊</i> Data</li>
         <ul class="submenu" id="submenu-data">
             <li class="submenu-item" href="lihat_users.html">Lihat Users</li>
-            <li class="submenu-item">Lihat Data Diri</li>
+            <li class="submenu-item" href="lihat_data_diri.html">Lihat Data Diri</li>
             <li class="submenu-item">Lihat Role</li>
         </ul>
-      <li><i class="icon">🔖</i> Absen</li>
+      <li id="absen-btn"><i class="icon">🔖</i> Absen</li>
+        <ul class="submenu" id="submenu-absen">
+            <li class="submenu-item" href="lihat_users.html">Lihat Kegiatan</li>
+            <li class="submenu-item" href="lihat_data_diri.html">Lihat Absensi</li>
+        </ul>
       <li><i class="icon">↩</i> back to home</li>
       <li id="logout-btn"><i class="icon">🚪</i> Log Out</li>
 
@@ -38,7 +43,6 @@
 
     <!-- Topbar -->
     <header class="topbar">
-      <div class="menu-toggle">☰</div>
       <input type="text" class="search" placeholder="Search projects">
       <div class="admin-dropdown">
         <span id="adminBtn">Admin ▼</span>
@@ -69,62 +73,72 @@
 
 <script>
     // dropdown
-const adminBtn = document.getElementById("adminBtn");
-const dropdownMenu = document.getElementById("dropdownMenu");
+  const adminBtn = document.getElementById("adminBtn");
+  const dropdownMenu = document.getElementById("dropdownMenu");
 
-adminBtn.addEventListener("click", () => {
-  dropdownMenu.style.display =
-    dropdownMenu.style.display === "block" ? "none" : "block";
-});
+  adminBtn.addEventListener("click", () => {
+    dropdownMenu.style.display =
+      dropdownMenu.style.display === "block" ? "none" : "block";
+  });
 
-document.addEventListener("click", (e) => {
-  if (!adminBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-    dropdownMenu.style.display = "none";
-  }
-});
+  document.addEventListener("click", (e) => {
+    if (!adminBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.style.display = "none";
+    }
+  });
 
-// Sidebar navigation
-const sidebarItems = document.querySelectorAll(".menu > li");
+  // Sidebar navigation
+  const sidebarItems = document.querySelectorAll(".menu > li");
 
-sidebarItems[0].addEventListener("click", () => {
-  window.location.href = "dashboard_admin.html";
-});
+  sidebarItems[0].addEventListener("click", () => {
+    window.location.href = "dashboard_admin.html";
+  });
 
-sidebarItems[2].addEventListener("click", () => {
-  window.location.href = "absen.html";
-});
+  sidebarItems[2].addEventListener("click", () => {
+    window.location.href = "absen.html";
+  });
 
-sidebarItems[3].addEventListener("click", () => {
-  window.location.href = "../index.html";
-});
+  sidebarItems[3].addEventListener("click", () => {
+    window.location.href = "../index.html";
+  });
 
-document.getElementById("logout-btn").addEventListener("click", () => {
-  window.location.href = "home.html";
-});
+  document.getElementById("logout-btn").addEventListener("click", () => {
+    window.location.href = "home.html";
+  });
 
-// --- Dropdown Data ---
-const dataBtn = document.getElementById("data-btn");
-const submenuData = document.getElementById("submenu-data");
+  // --- Dropdown Data ---
+  const dataBtn = document.getElementById("data-btn");
+  const submenuData = document.getElementById("submenu-data");
 
-dataBtn.addEventListener("click", () => {
-  submenuData.style.display =
-    submenuData.style.display === "block" ? "none" : "block";
-});
+  dataBtn.addEventListener("click", () => {
+    submenuData.style.display =
+      submenuData.style.display === "block" ? "none" : "block";
+  });
 
-// Submenu click actions
-const submenuItems = document.querySelectorAll(".submenu-item");
+  // --- Dropdown Absen ---
+  const absenBtn = document.getElementById("absen-btn");
+  const submenuabsen = document.getElementById("submenu-absen");
 
-submenuItems[0].addEventListener("click", () => {
-  window.location.href = "lihat_users.html";
-});
+  absenBtn.addEventListener("click", () => {
+    submenuabsen.style.display =
+      submenuabsen.style.display === "block" ? "none" : "block";
+  });
 
-submenuItems[1].addEventListener("click", () => {
-  window.location.href = "lihat_data_diri.html";
-});
 
-submenuItems[2].addEventListener("click", () => {
-  window.location.href = "lihat_role.html";
-});
+  // Submenu click actions
+  const submenuItems = document.querySelectorAll(".submenu-item");
+
+  submenuItems[0].addEventListener("click", () => {
+    window.location.href = "lihat_users.html";
+  });
+
+  submenuItems[1].addEventListener("click", () => {
+    window.location.href = "lihat_data_diri.html";
+  });
+
+  submenuItems[2].addEventListener("click", () => {
+    window.location.href = "lihat_role.html";
+  });
 
 
 </script>

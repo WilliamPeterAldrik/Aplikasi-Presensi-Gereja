@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lihat Role</title>
+  <title>Lihat Kegiatan</title>
   <link rel="stylesheet" href="/public/dashboard_admin.css">
 </head>
 
@@ -20,16 +20,16 @@
 
     <ul class="menu">
       <li ><i class="icon">🏠</i> Dashboard</li>
-      <li id="data-btn" class="active"><i class="icon">📊</i> Data</li>
+      <li id="data-btn"><i class="icon">📊</i> Data</li>
         <ul class="submenu" id="submenu-data">
             <li class="submenu-item" href="lihat_users.html">Lihat Users</li>
             <li class="submenu-item" href="lihat_data_diri.html">Lihat Data Diri</li>
-            <li class="active2" >Lihat Role</li>
+            <li class="submenu-item" href="lihat_role.html">Lihat Role</li>
         </ul>
-      <li id="absen-btn"><i class="icon">🔖</i> Absen</li>
+      <li id="absen-btn" class="active"><i class="icon">🔖</i> Absen</li>
         <ul class="submenu" id="submenu-absen">
-            <li class="submenu-item" href="lihat_kegiatan.html">Lihat Kegiatan</li>
-            <li class="submenu-item" href="lihat_absensi.html">Lihat Absensi</li>
+            <li class="active2" >Lihat Kegiatan</li>
+            <li class="submenu-item" href="lihat_data_diri.html">Lihat Absensi</li>
         </ul>
       <li><i class="icon" href="home_admin.html">↩</i> back to home</li>
       <li id="logout-btn"><i class="icon" href="home.html">🚪</i> Log Out</li>
@@ -57,7 +57,7 @@
       <div class="card-header">
         <div class="title-group">
           <div class="icon-home">🏠</div>
-          <h2>Role</h2>
+          <h2>Kegiatan</h2>
         </div>
 
         <button 
@@ -66,7 +66,7 @@
             color:white;
             border:none;
             cursor:pointer;
-            font-size:13px;" onclick="location.href='add_user.html'">Create Role Baru        
+            font-size:13px;" onclick="location.href='add_user.html'"> Create Kegiatan Baru
         </button>
       </div>
 
@@ -97,10 +97,16 @@
           
           <thead style="background:#f2f5f8;">
             <tr>
-              <th style="padding:10px;">Id Role</th>
-              <th style="padding:10px;">Nama</th>
-              <th style="padding:10px;">Edit</th>
-              <th style="padding:10px;">Delete</th>
+              <th style="padding:10px;">No Kegiatan</th>
+              <th style="padding:10px;">Nama Kegiatan</th>
+              <th style="padding:10px;">Lokasi Tempat</th>
+              <th style="padding:10px;">Status</th>
+               <th style="padding:10px;">Waktu</th>
+               <th style="padding:10px;">Tanggal Mulai</th>
+               <th style="padding:10px;">Tanggal Akhir</th>
+               <th style="padding:10px;">Deskripsi</th>
+               <th style="padding:10px;">Edit</th>
+               <th style="padding:10px;">Delete</th>
             </tr>
           </thead>
           <tbody>

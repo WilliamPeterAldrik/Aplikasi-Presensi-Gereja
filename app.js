@@ -68,6 +68,10 @@ app.get("/lihat_users.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages", "admin","lihat_users.html"));
 });
 
+app.get("/lihat_data_diri.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "admin","lihat_data_diri.html"));
+});
+
 app.get("/lihat_role.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages", "admin","lihat_role.html"));
 });

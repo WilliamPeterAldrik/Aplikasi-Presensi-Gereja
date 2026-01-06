@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lihat Role</title>
+  <title>Lihat Data Diri</title>
   <link rel="stylesheet" href="/public/dashboard_admin.css">
 </head>
 
@@ -23,8 +23,8 @@
       <li id="data-btn" class="active"><i class="icon">📊</i> Data</li>
         <ul class="submenu" id="submenu-data">
             <li class="submenu-item" href="lihat_users.html">Lihat Users</li>
-            <li class="submenu-item" href="lihat_data_diri.html">Lihat Data Diri</li>
-            <li class="active2" >Lihat Role</li>
+            <li class="active2" >Lihat Data Diri</li>
+            <li class="submenu-item" href="lihat_role.html">Lihat Role</li>
         </ul>
       <li id="absen-btn"><i class="icon">🔖</i> Absen</li>
         <ul class="submenu" id="submenu-absen">
@@ -57,7 +57,7 @@
       <div class="card-header">
         <div class="title-group">
           <div class="icon-home">🏠</div>
-          <h2>Role</h2>
+          <h2>Data Diri</h2>
         </div>
 
         <button 
@@ -66,7 +66,7 @@
             color:white;
             border:none;
             cursor:pointer;
-            font-size:13px;" onclick="location.href='add_user.html'">Create Role Baru        
+            font-size:13px;" onclick="location.href='add_user.html'"> Masukkan Data
         </button>
       </div>
 
@@ -97,10 +97,15 @@
           
           <thead style="background:#f2f5f8;">
             <tr>
-              <th style="padding:10px;">Id Role</th>
-              <th style="padding:10px;">Nama</th>
-              <th style="padding:10px;">Edit</th>
-              <th style="padding:10px;">Delete</th>
+              <th style="padding:10px;">ID</th>
+              <th style="padding:10px;">Nama Lengkap</th>
+              <th style="padding:10px;">Nama Panggilan</th>
+              <th style="padding:10px;">Telepon</th>
+               <th style="padding:10px;">Ulang Tahun</th>
+               <th style="padding:10px;">Instagram</th>
+               <th style="padding:10px;">Hobby</th>
+               <th style="padding:10px;">Temen Deket</th>
+               <th style="padding:10px;">Keanggotaan</th>
             </tr>
           </thead>
           <tbody>
