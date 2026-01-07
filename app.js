@@ -33,9 +33,9 @@ app.use('/api/roles', require('./route/roleRoute'));
 app.use(Myrouter);
 
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "pages","ga_ada_akun", "home.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "pages","ga_ada_akun", "home.html"));
+// });
 
 // Route untuk setiap halaman
 app.get("/home.html", (req, res) => {
@@ -46,10 +46,6 @@ app.get("/kegiatan.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages","ga_ada_akun","kegiatan.html"));
 });
 
-app.get("/aboutus_u.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "pages","ga_ada_akun", "aboutus_u.html"));
-});
-
 app.get("/aboutus_new.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages","ga_ada_akun", "aboutus_new.html"));
 });
@@ -58,8 +54,16 @@ app.get("/akun_baru.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages","ga_ada_akun", "akun_baru.html"));
 });
 
+app.get("/home_u.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "jemaat","home_u.html"));
+});
+
 app.get("/absen_u.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages", "jemaat","absen_u.html"));
+});
+
+app.get("/aboutus_u.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "jemaat","aboutus_u.html"));
 });
 
 app.get("/home_admin.html", (req, res) => {
@@ -112,7 +116,6 @@ app.get("/add_user.html", (req, res) => {
 app.get("/edit_role.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages","admin", "edit_role.html"));
 });
-
 
 app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "pages","admin", "login.html"));

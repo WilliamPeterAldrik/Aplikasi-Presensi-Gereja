@@ -20,11 +20,11 @@
     </div>
 
     <ul class="menu">
-      <li><i class="icon">🏠</i> Dashboard</li>
-      <li id="data-btn" class="active"><i class="icon">📊</i> Data</li>
-        <ul class="submenu" id="submenu-data" style="display:block;">
+      <li class="active"><i class="icon">🏠</i> Dashboard</li>
+      <li id="data-btn" ><i class="icon">📊</i> Data</li>
+        <ul class="submenu" id="submenu-data">
             <li class="submenu-item" onclick="location.href='lihat_users.html'">Lihat Users</li>
-            <li class="active2" >Lihat Data Diri</li>
+            <li class="submenu-item" onclick="location.href='lihat_data_diri.html'" >Lihat Data Diri</li>
             <li class="submenu-item" onclick="location.href='lihat_role.html'"> Lihat Role</li>
         </ul>
       <li id="absen-btn"><i class="icon">🔖</i> Absen</li>
@@ -32,8 +32,8 @@
             <li class="submenu-item" onclick="location.href='lihat_kegiatan.html'">Lihat Kegiatan</li>
             <li class="submenu-item" onclick="location.href='lihat_absensi.html'">Lihat Absensi</li>
         </ul>
-      <li><i class="icon" href="home_admin.html">↩</i> back to home</li>
-      <li id="logout-btn"><i class="icon" href="home.html">🚪</i> Log Out</li>
+      <li onclick="location.href='home_admin.html'"><i class="icon">↩</i> back to home</li>
+      <li onclick="location.href='home.html'"><i class="icon">🚪</i> Log Out</li>
 
     </ul>
   </aside>
@@ -104,10 +104,6 @@
     submenuabsen.style.display =
       submenuabsen.style.display === "block" ? "none" : "block";
   });
-
-
-
-
 </script>
 </body>
 </html>

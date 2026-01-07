@@ -21,8 +21,8 @@
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
         <li><a href="kegiatan.html">Kegiatan</a></li>
-        <li><a href="aboutus_new.html" class="active">About Us</a></li>
-        <li><a href="" class="btn-login" id="btnLogin">Login</a></li>
+        <li><a href="aboutus_new.html" >About Us</a></li>
+        <li><a href="#" class="btn-login" id="btnLogin">Login</a></li>
       </ul>
     </nav>
   </header>
@@ -83,9 +83,9 @@
       <div class="footer-section">
         <h3>Join Us! At 10 AM SUNDAY</h3>
         <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="aboutus.html">About Us</a></li>
-          <li><a href="kegiatan.html">Kegiatan</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Kegiatan</a></li>
           <li><a href="#">Profile</a></li>
         </ul>
       </div>
@@ -102,19 +102,25 @@
   </footer>
 
   <!-- Modal Login -->
-  <div id="adminLoginModal" class="modal">
-    <div class="admin-login-content">
-      <button class="back-btn" id="backToChoice">← Kembali</button>
-      <h2>Login</h2>
-      <form class="login-form">
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
-        <a href="home_admin.html" type="submit" class="btn-login-admin">Login</a>
-        <!-- <button type="submit" class="btn-login-admin">Login</button> -->
-      </form>
-      <p>Belum punya akun? <a href="akun_baru.html">Buat Akun</a></p>
+    <div id="adminLoginModal" class="modal">
+      <div class="admin-login-content">
+        <button class="back-btn" id="backToChoice">← Kembali</button>
+        <h2>Login</h2>
+        <form class="login-form" method="POST" action="/login">
+          <input type="text" name="username" placeholder="Username" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+
+          <button type="submit" class="btn-login-admin">Login</button>
+        </form>
+
+        <p>Belum punya akun? <a href="akun_baru.html">Buat Akun</a></p>
+      </div>
     </div>
-  </div>
 
 <script>
   const loginBtn = document.getElementById('btnLogin');
@@ -148,5 +154,37 @@
   }
 
 </script>
+<script>
+      async function checkLoginStatus() {
+        try {
+          const res = await fetch("/api/me");
+          const data = await res.json();
+
+          const loginBtn = document.getElementById("btnLogin");
+
+          if (data.loggedIn) {
+            // sudah login → tampilkan nama
+            loginBtn.textContent = data.nama;
+            loginBtn.href = "#";
+
+            // klik nama → logout (opsional)
+            loginBtn.addEventListener("click", (e) => {
+              e.preventDefault();
+              if (confirm("Logout?")) {
+                window.location.href = "/logout";
+              }
+            });
+          } else {
+            // belum login → tombol login
+            loginBtn.textContent = "Login";
+          }
+        } catch (err) {
+          console.error("Gagal cek login:", err);
+        }
+      }
+
+      // jalankan saat halaman load
+      checkLoginStatus();
+    </script>
 </body>
 </html>
