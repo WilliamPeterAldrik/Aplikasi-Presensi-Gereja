@@ -12,6 +12,7 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="profile">
+      <h3>Youth Ministry Kebonjati</h3>
       <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
       <h3>Admin</h3>
       <span class="status">✔</span>
@@ -27,7 +28,11 @@
         <li class="submenu-item" style="color:#0066cc;">Lihat Role</li>
       </ul>
 
-      <li onclick="location.href='absen.html'"><i class="icon">🔖</i> Absen</li>
+      <li id="absen-btn"><i class="icon">🔖</i> Absen</li>
+        <ul class="submenu" id="submenu-absen">
+            <li class="submenu-item" onclick="location.href='lihat_kegiatan.html'">Lihat Kegiatan</li>
+            <li class="submenu-item" onclick="location.href='lihat_absensi.html'">Lihat Absensi</li>
+        </ul>
       <li onclick="location.href='../index.html'"><i class="icon">↩</i> back to home</li>
       <li onclick="location.href='logout.html'"><i class="icon">🚪</i> Log Out</li>
     </ul>
@@ -45,7 +50,6 @@
         <ul id="dropdownMenu">
           <li>Profile</li>
           <li>Settings</li>
-          <li>Logout</li>
         </ul>
       </div>
     </header>
@@ -128,6 +132,15 @@
 
   dataBtn.addEventListener("click", () => {
     submenuData.style.display = submenuData.style.display === "block" ? "none" : "block";
+  });
+
+  // --- Dropdown Absen ---
+  const absenBtn = document.getElementById("absen-btn");
+  const submenuabsen = document.getElementById("submenu-absen");
+
+  absenBtn.addEventListener("click", () => {
+    submenuabsen.style.display =
+      submenuabsen.style.display === "block" ? "none" : "block";
   });
 
   // Ambil data role dari API
