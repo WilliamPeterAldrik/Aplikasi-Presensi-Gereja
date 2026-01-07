@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static("pages"));
+// app.use(express.static("pages"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -74,6 +74,14 @@ app.get("/lihat_data_diri.html", (req, res) => {
 
 app.get("/lihat_role.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages", "admin","lihat_role.html"));
+});
+
+app.get("/lihat_kegiatan.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "admin","lihat_kegiatan.html"));
+});
+
+app.get("/lihat_absensi.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "admin","lihat_absensi.html"));
 });
 
 app.get("/add_role.html", (req, res) => {
