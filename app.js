@@ -11,6 +11,20 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const session = require("express-session");
+
+app.use(
+  session({
+    secret: "gereja-secret-key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 2 // 2 jam
+    }
+  })
+);
+
+
 // API ROUTE
 app.use("/api/users", require("./route/userRoute"));
 app.use('/api/roles', require('./route/roleRoute'));
@@ -34,6 +48,10 @@ app.get("/kegiatan.html", (req, res) => {
 
 app.get("/aboutus_u.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages","ga_ada_akun", "aboutus_u.html"));
+});
+
+app.get("/aboutus_new.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages","ga_ada_akun", "aboutus_new.html"));
 });
 
 app.get("/akun_baru.html", (req, res) => {
