@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lihat Role</title>
-  <link rel="stylesheet" href="/public/dashboard_admin.css">
+  <title>Lihat Role - Admin</title>
+  <link rel="stylesheet" href="dashboard_admin.css">
 </head>
 
 <body>
@@ -12,28 +12,24 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="profile">
-      <h3>Youth Ministry Kebonjati</h3>
       <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
       <h3>Admin</h3>
       <span class="status">✔</span>
     </div>
 
     <ul class="menu">
-      <li ><i class="icon">🏠</i> Dashboard</li>
-      <li id="data-btn" class="active"><i class="icon">📊</i> Data</li>
-        <ul class="submenu" id="submenu-data">
-            <li class="submenu-item" href="lihat_users.html">Lihat Users</li>
-            <li class="submenu-item" href="lihat_data_diri.html">Lihat Data Diri</li>
-            <li class="active2" >Lihat Role</li>
-        </ul>
-      <li id="absen-btn"><i class="icon">🔖</i> Absen</li>
-        <ul class="submenu" id="submenu-absen">
-            <li class="submenu-item" href="lihat_kegiatan.html">Lihat Kegiatan</li>
-            <li class="submenu-item" href="lihat_absensi.html">Lihat Absensi</li>
-        </ul>
-      <li><i class="icon" href="home_admin.html">↩</i> back to home</li>
-      <li id="logout-btn"><i class="icon" href="home.html">🚪</i> Log Out</li>
+      <li onclick="location.href='dashboard_admin.html'"><i class="icon">🏠</i> Dashboard</li>
 
+      <li id="data-btn"><i class="icon">📊</i> Data</li>
+      <ul class="submenu" id="submenu-data" style="display:block;">
+        <li class="submenu-item" onclick="location.href='lihat_users.html'">Lihat Users</li>
+        <li class="submenu-item" onclick="location.href='lihat_data_diri.html'">Lihat Data Diri</li>
+        <li class="submenu-item" style="color:#0066cc;">Lihat Role</li>
+      </ul>
+
+      <li onclick="location.href='absen.html'"><i class="icon">🔖</i> Absen</li>
+      <li onclick="location.href='../index.html'"><i class="icon">↩</i> back to home</li>
+      <li onclick="location.href='logout.html'"><i class="icon">🚪</i> Log Out</li>
     </ul>
   </aside>
 
@@ -42,12 +38,14 @@
 
     <!-- Topbar -->
     <header class="topbar">
-      <input type="text" class="search" placeholder="Search projects">
+      <div class="menu-toggle">☰</div>
+      <input type="text" class="search" placeholder="Search roles">
       <div class="admin-dropdown">
         <span id="adminBtn">Admin ▼</span>
         <ul id="dropdownMenu">
           <li>Profile</li>
           <li>Settings</li>
+          <li>Logout</li>
         </ul>
       </div>
     </header>
@@ -56,17 +54,14 @@
     <section class="dashboard-card">
       <div class="card-header">
         <div class="title-group">
-          <div class="icon-home">🏠</div>
+          <div class="icon-home">📂</div>
           <h2>Role</h2>
         </div>
 
         <button 
-          style="
-            background:#1a73e8;
-            color:white;
-            border:none;
-            cursor:pointer;
-            font-size:13px;" onclick="location.href='add_user.html'">Create Role Baru        
+          style="background:#1a73e8; color:white; border:none; padding:6px 10px; border-radius:6px; cursor:pointer; font-size:12px;"
+          onclick="location.href='add_role.html'">
+          Tambahkan Role
         </button>
       </div>
 
@@ -82,34 +77,22 @@
         </label>
 
         <div style="float:right; margin-bottom:10px;">
-          Search: <input type="text" style="padding:5px;">
+          Search: <input type="text" id="roleSearch" style="padding:5px;">
         </div>
 
-        <!-- Tabel Users -->
-        <table 
-          style="
-            width:100%;
-            border-collapse:collapse;
-            background:white;
-            margin-top:20px;
-            border-radius:10px;
-            overflow:hidden;">
-          
+        <!-- Tabel Role -->
+        <table style="width:100%; border-collapse:collapse; background:white; margin-top:20px; border-radius:10px; overflow:hidden;">
           <thead style="background:#f2f5f8;">
             <tr>
-              <th style="padding:10px;">Id Role</th>
-              <th style="padding:10px;">Nama</th>
+              <th style="padding:10px;">ID Role</th>
+              <th style="padding:10px;">Nama Role</th>
               <th style="padding:10px;">Edit</th>
               <th style="padding:10px;">Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding:10px; text-align:center;">William</td>
-              <td style="padding:10px; text-align:center;">william@example.com</td>
-              <td style="padding:10px; text-align:center;">Admin</td>
-               <td style="padding:10px; text-align:center;"><a class="btn btn-sm btn-warning" href="/user/edit/${u.username}">Edit</a></td>
-               <td style="padding:10px; text-align:center;"><a class="btn btn-sm btn-danger" href="/user/delete/${u.username}">Delete</a></td>
+              <td colspan="4" style="padding:10px;text-align:center;color:#666;">Memuat data...</td>
             </tr>
           </tbody>
         </table>
@@ -130,8 +113,7 @@
   const dropdownMenu = document.getElementById("dropdownMenu");
 
   adminBtn.addEventListener("click", () => {
-    dropdownMenu.style.display =
-      dropdownMenu.style.display === "block" ? "none" : "block";
+    dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
   });
 
   document.addEventListener("click", (e) => {
@@ -145,62 +127,59 @@
   const submenuData = document.getElementById("submenu-data");
 
   dataBtn.addEventListener("click", () => {
-    submenuData.style.display =
-      submenuData.style.display === "block" ? "none" : "block";
+    submenuData.style.display = submenuData.style.display === "block" ? "none" : "block";
   });
 
-  // --- Dropdown Absen ---
-  const absenBtn = document.getElementById("absen-btn");
-  const submenuabsen = document.getElementById("submenu-absen");
+  // Ambil data role dari API
+  async function loadRoles() {
+    const response = await fetch("/api/roles");
+    const tbody = document.querySelector("tbody");
+    if (!response.ok) {
+      let err;
+      try { err = await response.json(); } catch (e) { err = null; }
+      tbody.innerHTML = `<tr><td colspan="4" style="padding:10px;text-align:center;color:red;">Gagal mengambil data role; ${err && err.error ? err.error : 'Silakan coba lagi'}. <a href="#" onclick="loadRoles();return false;">Muat ulang</a></td></tr>`;
+      console.error('apiRoles failed', err, response.status);
+      return;
+    }
 
-  absenBtn.addEventListener("click", () => {
-    submenuabsen.style.display =
-      submenuabsen.style.display === "block" ? "none" : "block";
+    let roles;
+    try {
+      roles = await response.json();
+    } catch (e) {
+      tbody.innerHTML = `<tr><td colspan="4" style="padding:10px;text-align:center;color:red;">Gagal memproses respons server.</td></tr>`;
+      console.error('Failed to parse roles response', e);
+      return;
+    }
+
+    tbody.innerHTML = "";
+    if (!roles || roles.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="4" style="padding:10px;text-align:center;color:#666;">Tidak ada role.</td></tr>`;
+      return;
+    }
+
+    roles.forEach(r => {
+      tbody.innerHTML += `
+        <tr>
+          <td style="padding:10px;text-align:center;">${r.idRole}</td>
+          <td style="padding:10px;text-align:center;">${r.namaRole}</td>
+          <td style="padding:10px;text-align:center;"><a class="btn btn-sm btn-warning" href="/role/edit/${r.idRole}">Edit</a></td>
+          <td style="padding:10px;text-align:center;"><a class="btn btn-sm btn-danger" href="/role/delete/${r.idRole}">Delete</a></td>
+        </tr>
+      `;
+    });
+  }
+
+  loadRoles();
+
+  // Filter search sederhana
+  const searchInput = document.getElementById("roleSearch");
+  searchInput.addEventListener("input", () => {
+    const filter = searchInput.value.toLowerCase();
+    document.querySelectorAll("tbody tr").forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(filter) ? "" : "none";
+    });
   });
-
-  // Ambil data dari API dan tampilkan di tabel
-async function loadUsers() {
-  const response = await fetch("/api/users");
-  const tbody = document.querySelector("tbody");
-  if (!response.ok) {
-    // Try to read JSON error message
-    let err;
-    try { err = await response.json(); } catch (e) { err = null; }
-    tbody.innerHTML = `<tr><td colspan="6" style="padding:10px;text-align:center;color:red;">Gagal mengambil data user; ${err && err.error ? err.error : 'Silakan coba lagi'}. <a href="#" onclick="loadUsers();return false;">Muat ulang</a></td></tr>`;
-    console.error('apiUsers failed', err, response.status);
-    return;
-  }
-  let users;
-  try {
-    users = await response.json();
-  } catch (e) {
-    tbody.innerHTML = `<tr><td colspan="6" style="padding:10px;text-align:center;color:red;">Gagal memproses respons server; silakan coba lagi.</td></tr>`;
-    console.error('Failed to parse users response', e);
-    return;
-  }
-
-  tbody.innerHTML = "";
-
-  if (!users || users.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" style="padding:10px;text-align:center;color:#666;">Tidak ada pengguna.</td></tr>`;
-    return;
-  }
-
-  users.forEach(u => {
-    tbody.innerHTML += `
-      <tr>
-        <td style="padding:10px;text-align:center;">${u.username}</td>
-        <td style="padding:10px;text-align:center;">${u.nama_lengkap}</td>
-        <td style="padding:10px;text-align:center;">${u.email}</td>
-        <td style="padding:10px;text-align:center;">${u.role}</td>
-        <td style="padding:10px;text-align:center;"><a class="btn btn-sm btn-warning" href="/user/edit/${u.username}">Edit</a></td>
-        <td style="padding:10px;text-align:center;"><a class="btn btn-sm btn-danger" href="/user/delete/${u.username}">Delete</a></td>
-      </tr>
-    `;
-  });
-}
-
-loadUsers();
 </script>
 
 </body>

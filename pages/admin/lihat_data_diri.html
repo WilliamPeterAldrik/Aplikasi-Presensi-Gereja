@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lihat Data Diri</title>
-  <link rel="stylesheet" href="/public/dashboard_admin.css">
+  <link rel="stylesheet" href="dashboard_admin.css">
 </head>
 
 <body>
@@ -21,15 +21,15 @@
     <ul class="menu">
       <li ><i class="icon">🏠</i> Dashboard</li>
       <li id="data-btn" class="active"><i class="icon">📊</i> Data</li>
-        <ul class="submenu" id="submenu-data">
-            <li class="submenu-item" href="lihat_users.html">Lihat Users</li>
+        <ul class="submenu" id="submenu-data" style="display:block;">
+            <li class="submenu-item" onclick="location.href='lihat_users.html'">Lihat Users</li>
             <li class="active2" >Lihat Data Diri</li>
-            <li class="submenu-item" href="lihat_role.html">Lihat Role</li>
+            <li class="submenu-item" onclick="location.href='lihat_role.html'"> Lihat Role</li>
         </ul>
       <li id="absen-btn"><i class="icon">🔖</i> Absen</li>
         <ul class="submenu" id="submenu-absen">
-            <li class="submenu-item" href="lihat_kegiatan.html">Lihat Kegiatan</li>
-            <li class="submenu-item" href="lihat_absensi.html">Lihat Absensi</li>
+            <li class="submenu-item" onclick="location.href='lihat_kegiatan.html'">Lihat Kegiatan</li>
+            <li class="submenu-item" onclick="location.href='lihat_absensi.html'">Lihat Absensi</li>
         </ul>
       <li><i class="icon" href="home_admin.html">↩</i> back to home</li>
       <li id="logout-btn"><i class="icon" href="home.html">🚪</i> Log Out</li>
@@ -198,8 +198,6 @@ async function loadUsers() {
         <td style="padding:10px;text-align:center;">${u.nama_lengkap}</td>
         <td style="padding:10px;text-align:center;">${u.email}</td>
         <td style="padding:10px;text-align:center;">${u.role}</td>
-        <td style="padding:10px;text-align:center;"><a class="btn btn-sm btn-warning" href="/user/edit/${u.username}">Edit</a></td>
-        <td style="padding:10px;text-align:center;"><a class="btn btn-sm btn-danger" href="/user/delete/${u.username}">Delete</a></td>
       </tr>
     `;
   });
