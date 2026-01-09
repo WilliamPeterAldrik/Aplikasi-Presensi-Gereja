@@ -24,7 +24,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Nama Role</label>
-                        <input type="text" id="namaRole" class="form-control" required>
+                        <input type="text" id="nama_role" class="form-control" required>
                     </div>
 
                     <button type="submit" class="btn btn-success">Update</button>
@@ -52,7 +52,7 @@ async function loadRole() {
     const data = await res.json();
     
     document.getElementById("idRole").value = data.idRole || data.ID || data.roleId;
-    document.getElementById("namaRole").value = data.namaRole || data.nama || data.Role;
+    document.getElementById("nama_role").value = data.nama_role || data.nama || data.Role;
 }
 
 loadRole();
@@ -62,7 +62,7 @@ document.getElementById("formEditRole").addEventListener("submit", async (e) => 
     e.preventDefault();
 
     const payload = {
-        namaRole: document.getElementById("namaRole").value
+        nama_role: document.getElementById("nama_role").value
     };
 
     const res = await fetch(`/api/roles/${roleId}`, {

@@ -106,6 +106,15 @@ const apiDebug = (req, res) => {
     });
 };
 
+const getRoles = (req, res) => {
+    Role.getAll((err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+};
+
 module.exports = {
     index,
     create,
@@ -115,5 +124,6 @@ module.exports = {
     apiStore,
     apiUpdate,
     apiDelete,
-    apiDebug
+    apiDebug,
+    getRoles
 };

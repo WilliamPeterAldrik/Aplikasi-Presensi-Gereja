@@ -13,18 +13,24 @@
 
   <!-- Navbar -->
   <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="/img/logo_youth.jpg" alt="Logo">
-        <h3>Youth Ministry GKI Kebonjati</h3>
-      </div>
-      <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="kegiatan.html">Kegiatan</a></li>
-        <li><a href="aboutus_u.html" class="active">About Us</a></li>
-        <li><a href="" class="btn-login" id="btnLogin">Jemaat</a></li>
-      </ul>
-    </nav>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="/img/logo_youth.jpg" alt="Logo" />
+          <h3>Youth Ministry GKI Kebonjati</h3>
+        </div>
+        <ul class="nav-links">
+          <li><a href="home_u.html">Home</a></li>
+          <li><a href="absen_u.html">Absen</a></li>
+          <li><a href="aboutus_u.html">About Us</a></li>
+          <li class="dropdown">
+            <a class="btn-login" id="btnUser">Loading...</a>
+            <ul class="dropdown-menu" id="dropdownMenu">
+              <li><a href="#">Akun</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
   </header>
 
   <!-- About Section -->
@@ -117,35 +123,44 @@
   </div>
 
 <script>
-  const loginBtn = document.getElementById('btnLogin');
-  const adminLoginModal = document.getElementById('adminLoginModal');
-  const backToChoice = document.getElementById('backToChoice');
+      const btnUser = document.getElementById("btnUser");
+      const dropdownMenu = document.getElementById("dropdownMenu");
 
-  // tombol login navbar -> buka modal
-  loginBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    adminLoginModal.style.display = 'flex';
-  });
+      btnUser.addEventListener("click", function (e) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle("show");
+        btnUser.classList.toggle("active"); // efek panah
+      });
 
-  // tombol kembali
-  backToChoice.addEventListener('click', () => {
-    adminLoginModal.style.display = 'none';
-  });
+      document.addEventListener("click", function (e) {
+        if (!btnUser.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.classList.remove("show");
+          btnUser.classList.remove("active");
+        }
+      });
+    </script>
 
-  // klik di luar modal -> tutup
-  window.addEventListener('click', (e) => {
-    if (e.target === adminLoginModal) {
-      adminLoginModal.style.display = 'none';
-    }
-  });
+    <script>
+      async function loadUserName() {
+        try {
+          const res = await fetch("/api/me");
+          const data = await res.json();
 
-  // klik tombol "Buat Akun" -> pindah halaman
-  const createAccountLink = document.querySelector('a[href="akun_baru.html"]');
-  if (createAccountLink) {
-    createAccountLink.addEventListener('click', () => {
-      adminLoginModal.style.display = 'none';
-    });
-  }
+          const btnUser = document.getElementById("btnUser");
+
+          if (data.loggedIn) {
+            btnUser.textContent = data.nama; // 🔥 NAMA LENGKAP
+          } else {
+            // kalau session hilang
+            window.location.href = "/";
+          }
+        } catch (err) {
+          console.error("Gagal ambil data user:", err);
+        }
+      }
+
+      loadUserName();
+    </script>
 
 </script>
 </body>

@@ -3,6 +3,7 @@ const router = express.Router();
 const roleController = require('../Controller/RoleController');
 
 // API Roles
+router.get('/api/roles', roleController.getRoles);
 router.get('/', roleController.apiIndex);
 router.post('/', roleController.apiStore);
 router.get('/:id', roleController.apiShow);

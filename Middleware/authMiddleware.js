@@ -1,7 +1,11 @@
 const authMiddleware = (req, res, next) => {
   if (!req.session.user) {
-    return res.redirect("/home");
+    return res.redirect("/login"); // ⛔ BUKAN /home
   }
+  if (!req.session.user) {
+    return res.redirect("/");
+  }
+
   next();
 };
 

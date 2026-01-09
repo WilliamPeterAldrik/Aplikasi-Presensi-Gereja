@@ -1,13 +1,12 @@
 const express = require("express");
-const path = require("path");
+
+const path = require("path")
 const Myrouter = require("./route/route.js");
 
 const app = express();
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
-// app.use(express.static("pages"));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -19,23 +18,23 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 2 // 2 jam
+      maxAge: 1000 * 60 * 60 * 2
     }
   })
 );
 
-
-// API ROUTE
+// API
 app.use("/api/users", require("./route/userRoute"));
-app.use('/api/roles', require('./route/roleRoute'));
+app.use("/api/roles", require("./route/roleRoute"));
 
-// WEB ROUTE
+// WEB
 app.use(Myrouter);
 
+// PUBLIC (BELUM LOGIN)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "ga_ada_akun", "home.html"));
+});
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "pages","ga_ada_akun", "home.html"));
-// });
 
 // Route untuk setiap halaman
 app.get("/home.html", (req, res) => {
@@ -115,6 +114,22 @@ app.get("/add_user.html", (req, res) => {
 });
 app.get("/edit_role.html", (req, res) => {
   res.sendFile(path.join(__dirname, "pages","admin", "edit_role.html"));
+});
+
+app.get("/edit_user.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages","admin", "edit_user.html"));
+});
+app.get("/edit_role.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages","admin", "edit_role.html"));
+});
+
+app.get("/home_au.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "usher","home_au.html"));
+});
+
+
+app.get("/scan_au.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages", "usher","scan_au.html"));
 });
 
 app.get("/login", (req, res) => {
