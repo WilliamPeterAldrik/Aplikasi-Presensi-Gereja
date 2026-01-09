@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scan Absensi - Usher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- QR Scanner Library -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <style>
+    body {
+      font-family: Poppins, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .scanner-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    #reader {
+      width: 100%;
+      margin: 15px auto;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="scanner-box">
+    <h2>📷 Scan QR Absensi</h2>
+    <p>Arahkan kamera ke QR Jemaat</p>
+
+    <div id="reader"></div>
+
+    <div id="result" class="status"></div>
+  </div>
+
+<script>
+  const resultDiv = document.getElementById("result");
+
+  function onScanSuccess(decodedText) {
+    // stop kamera setelah scan
+    html5QrcodeScanner.clear();
+
+    resultDiv.innerHTML = "⏳ Memproses absensi...";
+    resultDiv.className = "status";
+
+    fetch("/usher/scan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: decodedText
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.message.includes("berhasil")) {
+        resultDiv.classList.add("success");
+      } else {
+        resultDiv.classList.add("error");
+      }
+
+      resultDiv.innerHTML = data.message;
+
+      // aktifkan scan ulang setelah 3 detik
+      setTimeout(() => location.reload(), 3000);
+    })
+    .catch(() => {
+      resultDiv.classList.add("error");
+      resultDiv.innerHTML = "❌ Gagal koneksi ke server";
+    });
+  }
+
+  const html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader",
+    { fps: 10, qrbox: 250 }
+  );
+
+  html5QrcodeScanner.render(onScanSuccess);
+</script>
+
+</body>
+</html>

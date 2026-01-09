@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lihat Data Diri</title>
-  <link rel="stylesheet" href="dashboard_admin.css">
+  <link rel="stylesheet" href="/dashboard_admin.css">
 </head>
 
 <body>
@@ -19,19 +19,19 @@
     </div>
 
     <ul class="menu">
-      <li onclick="location.href='dashboard_admin.html'"><i class="icon">🏠</i> Dashboard</li>
+      <li onclick="location.href='/admin/dashboard'"><i class="icon">🏠</i> Dashboard</li>
       <li id="data-btn" class="active"><i class="icon">📊</i> Data</li>
         <ul class="submenu" id="submenu-data" style="display:block;">
-            <li class="submenu-item" onclick="location.href='lihat_users.html'">Lihat Users</li>
+            <li class="submenu-item" onclick="location.href='/admin/lihat_users'">Lihat Users</li>
             <li class="active2" >Lihat Data Diri</li>
-            <li class="submenu-item" onclick="location.href='lihat_role.html'"> Lihat Role</li>
+            <li class="submenu-item" onclick="location.href='/admin/lihat_role'"> Lihat Role</li>
         </ul>
       <li id="absen-btn"><i class="icon">🔖</i> Absen</li>
         <ul class="submenu" id="submenu-absen">
-            <li class="submenu-item" onclick="location.href='lihat_kegiatan.html'">Lihat Kegiatan</li>
-            <li class="submenu-item" onclick="location.href='lihat_absensi.html'">Lihat Absensi</li>
+            <li class="submenu-item" onclick="location.href='/admin/lihat_kegiatan'">Lihat Kegiatan</li>
+            <li class="submenu-item" onclick="location.href='/admin/lihat_absensi'">Lihat Absensi</li>
         </ul>
-      <li onclick="location.href='home_admin.html'"><i class="icon">↩</i> back to home</li>
+      <li onclick="location.href='/admin/home'"><i class="icon">↩</i> back to home</li>
       <li onclick="location.href='home.html'"><i class="icon">🚪</i> Log Out</li>
 
     </ul>

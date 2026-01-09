@@ -1,213 +1,267 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lihat Kegiatan</title>
-  <link rel="stylesheet" href="dashboard_admin.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lihat Kegiatan</title>
+    <link rel="stylesheet" href="/dashboard_admin.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <h3>Youth Ministry Kebonjati</h3>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+          alt=""
+        />
+        <h3>Admin</h3>
+        <span class="status">✔</span>
+      </div>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="profile">
-      <h3>Youth Ministry Kebonjati</h3>
-      <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-      <h3>Admin</h3>
-      <span class="status">✔</span>
-    </div>
-
-    <ul class="menu">
-      <li onclick="location.href='dashboard_admin.html'"><i class="icon">🏠</i> Dashboard</li>
-      <li id="data-btn"><i class="icon">📊</i> Data</li>
+      <ul class="menu">
+        <li onclick="location.href='/admin/dashboard'">
+          <i class="icon">🏠</i> Dashboard
+        </li>
+        <li id="data-btn"><i class="icon">📊</i> Data</li>
         <ul class="submenu" id="submenu-data">
-            <li class="submenu-item" onclick="location.href='lihat_users.html'">Lihat Users</li>
-            <li class="submenu-item" onclick="location.href='lihat_data_diri.html'">Lihat Data Diri</li>
-            <li class="submenu-item" onclick="location.href='lihat_role.html'">Lihat Role</li>
+          <li class="submenu-item" onclick="location.href='/admin/lihat_users'">
+            Lihat Users
+          </li>
+          <li
+            class="submenu-item"
+            onclick="location.href='/admin/lihat_data_diri'"
+          >
+            Lihat Data Diri
+          </li>
+          <li class="submenu-item" onclick="location.href='/admin/lihat_role'">
+            Lihat Role
+          </li>
         </ul>
-      <li id="absen-btn" class="active"><i class="icon">🔖</i> Absen</li>
-        <ul class="submenu" id="submenu-absen"style="display:block;">
-            <li class="active2" onclick="location.href='lihat_kegiatan.html'">Lihat Kegiatan</li>
-            <li class="submenu-item" onclick="location.href='lihat_absensi.html'">Lihat Absensi</li>
+        <li id="absen-btn" class="active"><i class="icon">🔖</i> Absen</li>
+        <ul class="submenu" id="submenu-absen" style="display: block">
+          <li class="active2" onclick="location.href='/admin/lihat_kegiatan'">
+            Lihat Kegiatan
+          </li>
+          <li
+            class="submenu-item"
+            onclick="location.href='/admin/lihat_absensi'"
+          >
+            Lihat Absensi
+          </li>
         </ul>
-      <li onclick="location.href='home_admin.html'"><i class="icon">↩</i> back to home</li>
-      <li onclick="location.href='home.html'"><i class="icon">🚪</i> Log Out</li>
+        <li onclick="location.href='/admin/home'">
+          <i class="icon">↩</i> back to home
+        </li>
+        <li onclick="location.href='home.html'">
+          <i class="icon">🚪</i> Log Out
+        </li>
+      </ul>
+    </aside>
 
-    </ul>
-  </aside>
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <input type="text" class="search" placeholder="Search projects" />
+        <div class="admin-dropdown">
+          <span id="adminBtn">Admin ▼</span>
+          <ul id="dropdownMenu">
+            <li>Profile</li>
+            <li>Settings</li>
+          </ul>
+        </div>
+      </header>
 
-  <!-- Main Content -->
-  <main class="main">
+      <!-- Header Halaman -->
+      <section class="dashboard-card">
+        <div class="card-header">
+          <div class="title-group">
+            <div class="icon-home">🏠</div>
+            <h2>Kegiatan</h2>
+          </div>
 
-    <!-- Topbar -->
-    <header class="topbar">
-      <input type="text" class="search" placeholder="Search projects">
-      <div class="admin-dropdown">
-        <span id="adminBtn">Admin ▼</span>
-        <ul id="dropdownMenu">
-          <li>Profile</li>
-          <li>Settings</li>
-        </ul>
-      </div>
-    </header>
-
-    <!-- Header Halaman -->
-    <section class="dashboard-card">
-      <div class="card-header">
-        <div class="title-group">
-          <div class="icon-home">🏠</div>
-          <h2>Kegiatan</h2>
+          <button
+            style="
+              background: #1a73e8;
+              color: white;
+              border: none;
+              cursor: pointer;
+              font-size: 13px;
+            "
+            onclick="location.href='/kegiatan/create'"
+          >
+            Create Kegiatan Baru
+          </button>
         </div>
 
-        <button 
-          style="
-            background:#1a73e8;
-            color:white;
-            border:none;
-            cursor:pointer;
-            font-size:13px;" onclick="location.href='add_user.html'"> Create Kegiatan Baru
-        </button>
-      </div>
+        <!-- Table Container -->
+        <div style="padding: 20px">
+          <label>
+            <select style="padding: 5px 10px">
+              <option>10</option>
+              <option>25</option>
+              <option>50</option>
+            </select>
+            entries per page
+          </label>
 
-      <!-- Table Container -->
-      <div style="padding:20px;">
-        <label>
-          <select style="padding:5px 10px;">
-            <option>10</option>
-            <option>25</option>
-            <option>50</option>
-          </select>
-          entries per page
-        </label>
+          <div style="float: right; margin-bottom: 10px">
+            Search: <input type="text" style="padding: 5px" />
+          </div>
 
-        <div style="float:right; margin-bottom:10px;">
-          Search: <input type="text" style="padding:5px;">
+          <!-- Tabel Users -->
+          <table
+            style="
+              width: 100%;
+              border-collapse: collapse;
+              background: white;
+              margin-top: 20px;
+              border-radius: 10px;
+              overflow: hidden;
+            "
+          >
+            <thead style="background: #f2f5f8">
+              <tr>
+                <th style="padding: 10px;text-align: center;">No Kegiatan</th>
+                <th style="padding: 10px;text-align: center;">Nama Kegiatan</th>
+                <th style="padding: 10px;text-align: center;">Lokasi Tempat</th>
+                <th style="padding: 10px;text-align: center;">Status</th>
+                <th style="padding: 10px;text-align: center;">Waktu</th>
+                <th style="padding: 10px;text-align: center;">Tanggal Mulai</th>
+                <th style="padding: 10px;text-align: center;">Tanggal Akhir</th>
+                <th style="padding: 10px;text-align: center;">Deskripsi</th>
+                <th style="padding: 10px;text-align: center;">Edit</th>
+                <th style="padding: 10px;text-align: center;">Delete</th>
+              </tr>
+            </thead>
+            <tbody id="kegiatanTable">
+              <tr>
+                <td colspan="10">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <div style="margin-top: 20px; text-align: center">
+            « ‹
+            <input
+              type="text"
+              value="1"
+              style="width: 30px; text-align: center"
+            />
+            › »
+          </div>
         </div>
+      </section>
+    </main>
 
-        <!-- Tabel Users -->
-        <table 
-          style="
-            width:100%;
-            border-collapse:collapse;
-            background:white;
-            margin-top:20px;
-            border-radius:10px;
-            overflow:hidden;">
-          
-          <thead style="background:#f2f5f8;">
-            <tr>
-              <th style="padding:10px;">No Kegiatan</th>
-              <th style="padding:10px;">Nama Kegiatan</th>
-              <th style="padding:10px;">Lokasi Tempat</th>
-              <th style="padding:10px;">Status</th>
-               <th style="padding:10px;">Waktu</th>
-               <th style="padding:10px;">Tanggal Mulai</th>
-               <th style="padding:10px;">Tanggal Akhir</th>
-               <th style="padding:10px;">Deskripsi</th>
-               <th style="padding:10px;">Edit</th>
-               <th style="padding:10px;">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding:10px; text-align:center;">William</td>
-              <td style="padding:10px; text-align:center;">william@example.com</td>
-              <td style="padding:10px; text-align:center;">Admin</td>
-               <td style="padding:10px; text-align:center;"><a class="btn btn-sm btn-warning" href="/user/edit/${u.username}">Edit</a></td>
-               <td style="padding:10px; text-align:center;"><a class="btn btn-sm btn-danger" href="/user/delete/${u.username}">Delete</a></td>
-            </tr>
-          </tbody>
-        </table>
+    <script>
+      // Dropdown Admin
+      const adminBtn = document.getElementById("adminBtn");
+      const dropdownMenu = document.getElementById("dropdownMenu");
 
-        <!-- Pagination -->
-        <div style="margin-top:20px; text-align:center;">
-          « ‹ <input type="text" value="1" style="width:30px; text-align:center;"> › »
-        </div>
+      adminBtn.addEventListener("click", () => {
+        dropdownMenu.style.display =
+          dropdownMenu.style.display === "block" ? "none" : "block";
+      });
 
-      </div>
-    </section>
+      document.addEventListener("click", (e) => {
+        if (!adminBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.style.display = "none";
+        }
+      });
 
-  </main>
+      // Dropdown Data
+      const dataBtn = document.getElementById("data-btn");
+      const submenuData = document.getElementById("submenu-data");
 
-<script>
-  // Dropdown Admin
-  const adminBtn = document.getElementById("adminBtn");
-  const dropdownMenu = document.getElementById("dropdownMenu");
+      dataBtn.addEventListener("click", () => {
+        submenuData.style.display =
+          submenuData.style.display === "block" ? "none" : "block";
+      });
 
-  adminBtn.addEventListener("click", () => {
-    dropdownMenu.style.display =
-      dropdownMenu.style.display === "block" ? "none" : "block";
-  });
+      // --- Dropdown Absen ---
+      const absenBtn = document.getElementById("absen-btn");
+      const submenuabsen = document.getElementById("submenu-absen");
 
-  document.addEventListener("click", (e) => {
-    if (!adminBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-      dropdownMenu.style.display = "none";
-    }
-  });
+      absenBtn.addEventListener("click", () => {
+        submenuabsen.style.display =
+          submenuabsen.style.display === "block" ? "none" : "block";
+      });
+    </script>
 
-  // Dropdown Data
-  const dataBtn = document.getElementById("data-btn");
-  const submenuData = document.getElementById("submenu-data");
+    <!-- Fetch Kegiatan Data -->
+    <script>
+      fetch("/api/kegiatan")
+        .then((res) => res.json())
+        .then((data) => {
+          const table = document.getElementById("kegiatanTable");
+          table.innerHTML = "";
 
-  dataBtn.addEventListener("click", () => {
-    submenuData.style.display =
-      submenuData.style.display === "block" ? "none" : "block";
-  });
+          if (!data || data.length === 0) {
+            table.innerHTML =
+              "<tr><td colspan='10'>Belum ada kegiatan</td></tr>";
+            return;
+          }
 
-  // --- Dropdown Absen ---
-  const absenBtn = document.getElementById("absen-btn");
-  const submenuabsen = document.getElementById("submenu-absen");
+          data.forEach((kegiatan, index) => {
+            const statusText = kegiatan.status == 1 ? "Aktif" : "Nonaktif";
+            const statusColor = kegiatan.status == 1 ? "green" : "red";
 
-  absenBtn.addEventListener("click", () => {
-    submenuabsen.style.display =
-      submenuabsen.style.display === "block" ? "none" : "block";
-  });
+            table.innerHTML += `
+          <tr>
+            <td style="text-align: center;">${index + 1}</td>
+            <td style="text-align: center;">${kegiatan.nama_kegiatan}</td>
+            <td style="text-align: center;">${kegiatan.lokasi}</td>
+            <td style="color:${statusColor}; font-weight:600; text-align: center;">
+              ${statusText}
+            </td>
+            <td style="text-align: center;">${kegiatan.waktu}</td>
+            <td style="text-align: center;">
+              ${new Date(kegiatan.tanggal_mulai).toLocaleDateString("id-ID")}
+            </td>
+            <td style="text-align: center;">
+              ${new Date(kegiatan.tanggal_akhir).toLocaleDateString("id-ID")}
+            </td>
+            <td style="text-align: center;">${kegiatan.deskripsi || "-"}</td>
+            <td>
+              <button 
+                onclick="editKegiatan(${kegiatan.idKegiatan})"
+                style="padding:5px 10px;text-align: center; cursor:pointer">
+                edit
+              </button>
+            </td>
+            <td>
+              <button 
+                onclick="deleteKegiatan(${kegiatan.idKegiatan})"
+                style="padding:5px 10px;text-align: center; cursor:pointer; color:red">
+                delete
+              </button>
+            </td>
+          </tr>
+        `;
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+          document.getElementById("kegiatanTable").innerHTML =
+            "<tr><td colspan='10' style='text-align: center;'>Gagal memuat data</td></tr>";
+        });
 
-  // Ambil data dari API dan tampilkan di tabel
-async function loadUsers() {
-  const response = await fetch("/api/users");
-  const tbody = document.querySelector("tbody");
-  if (!response.ok) {
-    // Try to read JSON error message
-    let err;
-    try { err = await response.json(); } catch (e) { err = null; }
-    tbody.innerHTML = `<tr><td colspan="6" style="padding:10px;text-align:center;color:red;">Gagal mengambil data user; ${err && err.error ? err.error : 'Silakan coba lagi'}. <a href="#" onclick="loadUsers();return false;">Muat ulang</a></td></tr>`;
-    console.error('apiUsers failed', err, response.status);
-    return;
-  }
-  let users;
-  try {
-    users = await response.json();
-  } catch (e) {
-    tbody.innerHTML = `<tr><td colspan="6" style="padding:10px;text-align:center;color:red;">Gagal memproses respons server; silakan coba lagi.</td></tr>`;
-    console.error('Failed to parse users response', e);
-    return;
-  }
+      function editKegiatan(id) {
+        window.location.href = `/admin/edit_kegiatan/${id}`;
+      }
 
-  tbody.innerHTML = "";
-
-  if (!users || users.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" style="padding:10px;text-align:center;color:#666;">Tidak ada pengguna.</td></tr>`;
-    return;
-  }
-
-  users.forEach(u => {
-    tbody.innerHTML += `
-      <tr>
-        <td style="padding:10px;text-align:center;">${u.username}</td>
-        <td style="padding:10px;text-align:center;">${u.nama_lengkap}</td>
-        <td style="padding:10px;text-align:center;">${u.email}</td>
-        <td style="padding:10px;text-align:center;">${u.role}</td>
-        <td style="padding:10px;text-align:center;"><a class="btn btn-sm btn-warning" href="/user/edit/${u.username}">Edit</a></td>
-        <td style="padding:10px;text-align:center;"><a class="btn btn-sm btn-danger" href="/user/delete/${u.username}">Delete</a></td>
-      </tr>
-    `;
-  });
-}
-
-loadUsers();
-</script>
-
-</body>
+      function deleteKegiatan(id) {
+        if (confirm("Yakin ingin menghapus kegiatan ini?")) {
+          fetch(`/api/kegiatan/${id}`, { method: "DELETE" })
+            .then((res) => res.json())
+            .then(() => location.reload())
+            .catch((err) => alert("Gagal menghapus kegiatan"));
+        }
+      }
+    </script>
+  </body>
 </html>

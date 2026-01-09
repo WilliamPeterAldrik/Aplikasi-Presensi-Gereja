@@ -2,16 +2,14 @@ const path = require("path");
 const express = require("express");
 const router = express.Router();
 
-
-
-router.use(express.static('public'))
-
+router.use(express.static('public'));
 
 const auth = require("../Middleware/authMiddleware");
 const allowRoles = require("../Middleware/roleMiddleware");
 
 const UserController = require("../Controller/UserController");
 const AbsensiController = require("../Controller/AbsensiController");
+const KegiatanController = require("../Controller/KegiatanController");
 const AuthController = require("../Controller/AuthController");
 const roleController = require("../Controller/RoleController");
 
@@ -20,14 +18,73 @@ router.post("/login", AuthController.loginProcess);
 router.get("/logout", AuthController.logout);
 
 // ADMIN
+router.get("/admin/dashboard",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/dashboard_admin.html", { root: "pages" });
+  }
+);
+
+router.get("/admin/home",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/home_admin.html", { root: "pages" });
+  }
+);
+
+router.get("/admin/lihat_absensi",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/lihat_absensi.html", { root: "pages" });
+  }
+);
+router.get("/admin/lihat_kegiatan",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/lihat_kegiatan.html", { root: "pages" });
+  }
+);
 router.get(
-  "/admin/dashboard",
+  "/api/kegiatan",
+  auth,
+  KegiatanController.apiIndex
+);
+router.get("/admin/lihat_role",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/lihat_role.html", { root: "pages" });
+  }
+);
+router.get("/admin/lihat_users",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/lihat_users.html", { root: "pages" });
+  }
+);
+router.get("/admin/lihat_data_diri",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/lihat_data_diri.html", { root: "pages" });
+  }
+);
+router.get("/admin/add_user",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/add_user.html", { root: "pages" });
+  }
+);
+router.get("/admin/edit_user",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/edit_user.html", { root: "pages" });
+  }
+);
+router.get("/admin/add_role",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/add_role.html", { root: "pages" });
+  }
+);
+router.get("/admin/edit_role",auth,allowRoles(1),(req, res) => {
+    res.sendFile("/admin/edit_role.html", { root: "pages" });
+  }
+);
+router.get(
+  "/kegiatan/create",
   auth,
   allowRoles(1),
   (req, res) => {
-    res.sendFile("admin/home_admin.html", { root: "pages" });
+    res.sendFile("admin/add_kegiatan.html", { root: "pages" });
   }
 );
+
+router.post(
+  "/kegiatan/create",
+  auth,
+  allowRoles(1),
+  KegiatanController.store
+);
+
 
 router.get(
   "/users",
@@ -61,13 +118,19 @@ router.get(
     res.sendFile("usher/home_au.html", { root: "pages" });
   }
 );
+router.get("/usher/scan_au", auth, allowRoles(3), (req, res) => {
+  res.sendFile("usher/scan_au.html", { root: "pages" });
+});
 
-router.post(
+router.get(
   "/usher/scan",
   auth,
   allowRoles(3),
-  AbsensiController.scanQR
+  (req, res) => {
+    res.sendFile("usher/scaning.html", { root: "pages" });
+  }
 );
+
 
 // JEMAAT
 router.get(
@@ -79,23 +142,23 @@ router.get(
   }
 );
 
-router.get(
-  "/about",
-  auth,
-  allowRoles(2),
-  (req, res) => {
-    res.sendFile("jemaat/aboutus_u.html", { root: "pages" });
-  }
-);
+// router.get(
+//   "/about",
+//   auth,
+//   allowRoles(2),
+//   (req, res) => {
+//     res.sendFile("jemaat/aboutus_u.html", { root: "pages" });
+//   }
+// );
 
-router.get(
-  "/kegiatan",
-  auth,
-  allowRoles(2),
-  (req, res) => {
-    res.sendFile("jemaat/kegiatan_u.html", { root: "pages" });
-  }
-);
+// router.get(
+//   "/kegiatan",
+//   auth,
+//   allowRoles(2),
+//   (req, res) => {
+//     res.sendFile("jemaat/kegiatan_u.html", { root: "pages" });
+//   }
+// );
 
 // ROLE
 router.get("/role", auth, allowRoles(1), roleController.index);
@@ -116,17 +179,6 @@ router.get("/api/me", (req, res) => {
   });
 });
 
-router.get("/home", auth, allowRoles(2), (req, res) => {
-  res.sendFile("jemaat/home_u.html", { root: "pages" });	
-});
-
-router.get("/about", auth, allowRoles(2), (req, res) => {
-  res.sendFile("jemaat/aboutus_u.html", { root: "pages" });
-});
-
-router.get("/kegiatan", auth, allowRoles(2), (req, res) => {
-  res.sendFile("jemaat/kegiatan_u.html", { root: "pages" });
-});
 
 
 // Halaman Web User
