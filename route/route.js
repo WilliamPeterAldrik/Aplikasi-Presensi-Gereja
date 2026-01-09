@@ -157,6 +157,14 @@ router.get(
 );
 
 router.get(
+  "/profile",
+  auth,
+  allowRoles(2),
+  (req, res) => {
+    res.sendFile("jemaat/profile.html", { root: "pages" });
+  }
+);
+router.get(
   "/about",
   auth,
   allowRoles(2),
