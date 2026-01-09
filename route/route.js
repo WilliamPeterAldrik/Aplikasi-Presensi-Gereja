@@ -17,6 +17,20 @@ const roleController = require("../Controller/RoleController");
 router.post("/login", AuthController.loginProcess);
 router.get("/logout", AuthController.logout);
 
+router.get("/ga_ada_akun/home", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "pages", "ga_ada_akun", "home.html"));
+});
+
+router.get("/ga_ada_akun/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "pages", "ga_ada_akun", "aboutus_new.html"));
+});
+router.get("/ga_ada_akun/kegiatan", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "pages", "ga_ada_akun", "kegiatan.html"));
+});
+router.get("/ga_ada_akun/akun_baru", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "pages", "ga_ada_akun", "akun_baru.html"));
+});
+
 // ADMIN
 router.get("/admin/dashboard",auth,allowRoles(1),(req, res) => {
     res.sendFile("/admin/dashboard_admin.html", { root: "pages" });
@@ -115,11 +129,11 @@ router.get(
   auth,
   allowRoles(3),
   (req, res) => {
-    res.sendFile("usher/home_au.html", { root: "pages" });
+    res.sendFile("/usher/home_au.html", { root: "pages" });
   }
 );
 router.get("/usher/scan_au", auth, allowRoles(3), (req, res) => {
-  res.sendFile("usher/scan_au.html", { root: "pages" });
+  res.sendFile("/usher/scan_au.html", { root: "pages" });
 });
 
 router.get(
@@ -142,23 +156,23 @@ router.get(
   }
 );
 
-// router.get(
-//   "/about",
-//   auth,
-//   allowRoles(2),
-//   (req, res) => {
-//     res.sendFile("jemaat/aboutus_u.html", { root: "pages" });
-//   }
-// );
+router.get(
+  "/about",
+  auth,
+  allowRoles(2),
+  (req, res) => {
+    res.sendFile("jemaat/aboutus_u.html", { root: "pages" });
+  }
+);
 
-// router.get(
-//   "/kegiatan",
-//   auth,
-//   allowRoles(2),
-//   (req, res) => {
-//     res.sendFile("jemaat/kegiatan_u.html", { root: "pages" });
-//   }
-// );
+router.get(
+  "/kegiatan",
+  auth,
+  allowRoles(2),
+  (req, res) => {
+    res.sendFile("jemaat/absen_u.html", { root: "pages" });
+  }
+);
 
 // ROLE
 router.get("/role", auth, allowRoles(1), roleController.index);
